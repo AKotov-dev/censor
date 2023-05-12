@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Censor (Website blocker)
+Name[ru]=Censor (Блокировщик сайтов)
+Comment=Blocking websites at the time
+Comment[ru]=Блокировка сайтов по времени
+Icon=censor
+Exec=censor
+Type=Application
+Categories=System;
+Terminal=false

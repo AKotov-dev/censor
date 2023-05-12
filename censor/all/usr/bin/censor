@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkexec /usr/share/censor/censor
+
+exit 0
