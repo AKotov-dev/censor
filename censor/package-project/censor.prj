@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/censor
 license=GPLv3
 
 [DEPS]
-deps=iptables ipset cronie polkit bind-utils gtk2
+deps=iptables ipset systemd cronie polkit bind-utils gtk2
 
 [META]
 meta=0
