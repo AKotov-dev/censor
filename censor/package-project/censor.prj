@@ -2,7 +2,7 @@
 name=censor
 
 [VERSION]
-version=0.3
+version=0.4
 
 [RELEASE]
 release=0.mrx9
@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/censor
 license=GPLv3
 
 [DEPS]
-deps=iptables ipset polkit bind-utils gtk2
+deps=iptables ipset crond polkit bind-utils gtk2
 
 [META]
 meta=0
@@ -92,10 +92,14 @@ toolversion=2.2.4
 [INFO]
 0=Censor - Site blocker with scheduler
 1=
-2=v0.3
-3=+ Improved algorithm for building blacklists
+2=v0.4
+3=+ Added `crond` dependency (spec)
 4=+ Packages for Mageia-8/9 and Ubuntu
 5=
-6=v0.2
-7=+ Initial Release
+6=v0.3
+7=+ Improved algorithm for building blacklists
 8=+ Packages for Mageia-8/9 and Ubuntu
+9=
+10=v0.2
+11=+ Initial Release
+12=+ Packages for Mageia-8/9 and Ubuntu
