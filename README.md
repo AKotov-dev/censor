@@ -16,4 +16,4 @@ How to work
 
 Open a browser and check your work. If you changed the blocking rules again, **the browser needs to be reopened** and check the work again. The `Reset` button removes all locks and returns full access to the Internet.
 
-In case the site is not blocked (for example `yotube.com` or similar), add its address with `www.` prefix at the beginning (`www.youtube.com`) and click `Apply`. Reopen your browser and check the blocking again.
+In case the site is not blocked (eg `yotube.com` or similar), add another one of the same address with `www.` prefix at the beginning (`www.youtube.com`) and click `Apply`. Reopen your browser and check the blocking again.
