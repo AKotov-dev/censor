@@ -1,0 +1,156 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tmainform.addbtn.hint
+msgid "Add Site"
+msgstr ""
+
+#: tmainform.additem.caption
+msgid "Add"
+msgstr ""
+
+#: tmainform.caption
+msgid "Сensor"
+msgstr ""
+
+#: tmainform.dictionarycheck.caption
+msgid "Activate the dictionary filtering method"
+msgstr ""
+
+#: tmainform.fridaycheck.caption
+msgid "Friday"
+msgstr ""
+
+#: tmainform.groupbox1.caption
+msgid "Days of blocking:"
+msgstr ""
+
+#: tmainform.groupbox3.caption
+msgid "Blocking Methods and Schedule:"
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "Blocked sites:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Start of blocking"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid "End of blocking"
+msgstr ""
+
+#: tmainform.listbox1.hint
+msgid ""
+"ok.ru\n"
+"twitter.com\n"
+"www.tiktok.com"
+msgstr ""
+
+#: tmainform.loadbtn.hint
+msgid "Load List"
+msgstr ""
+
+#: tmainform.loadfromfileitem.caption
+msgid "Load from file"
+msgstr ""
+
+#: tmainform.mondaycheck.caption
+msgid "Monday"
+msgstr ""
+
+#: tmainform.onlywebcheck.caption
+msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
+msgstr ""
+
+#: tmainform.removebtn.hint
+msgid "Delete Selected"
+msgstr ""
+
+#: tmainform.removeitem.caption
+msgid "Remove"
+msgstr ""
+
+#: tmainform.restartbtn.caption
+msgid "Apply"
+msgstr ""
+
+#: tmainform.restorebtn.caption
+msgid "Reset"
+msgstr ""
+
+#: tmainform.saturdaycheck.caption
+msgid "Saturday"
+msgstr ""
+
+#: tmainform.savebtn.hint
+msgid "Save List"
+msgstr ""
+
+#: tmainform.savetofileitem.caption
+msgid "Save to file"
+msgstr ""
+
+#: tmainform.selectall.hint
+msgid "Select all"
+msgstr ""
+
+#: tmainform.sortbtn.hint
+msgctxt "tmainform.sortbtn.hint"
+msgid "Sort List"
+msgstr ""
+
+#: tmainform.sortitem.caption
+msgctxt "tmainform.sortitem.caption"
+msgid "Sort List"
+msgstr ""
+
+#: tmainform.starttime.text
+msgid "09:00"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"
+msgstr ""
+
+#: tmainform.stoptime.text
+msgid "18:00"
+msgstr ""
+
+#: tmainform.sundaycheck.caption
+msgid "Sunday"
+msgstr ""
+
+#: tmainform.thursdaycheck.caption
+msgid "Thursday"
+msgstr ""
+
+#: tmainform.tuesdaycheck.caption
+msgid "Tuesday"
+msgstr ""
+
+#: tmainform.wednesdaycheck.caption
+msgid "Wednesday"
+msgstr ""
+
+#: tmainform.worklabel.caption
+msgid "Working, wait..."
+msgstr ""
+
+#: unit1.sappendrecord
+msgid "Append a website"
+msgstr ""
+
+#: unit1.sdeleteconfiguration
+msgid "Remove selected from list?"
+msgstr ""
+
+#: unit1.srootrequires
+msgid "Root privileges required!"
+msgstr ""
+
+#: unit1.stimewrong
+msgid "Wrong time range!"
+msgstr ""
+

@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: SiteBlocker\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: tmainform.additem.caption
+msgid "Add"
+msgstr ""
+
+#: tmainform.caption
+msgid "SiteBlocker"
+msgstr ""
+
+#: tmainform.dictionarycheck.caption
+msgctxt "tmainform.dictionarycheck.caption"
+msgid "Activate the dictionary filtering method"
+msgstr ""
+
+#: tmainform.fridaycheck.caption
+msgid "Friday"
+msgstr ""
+
+#: tmainform.groupbox1.caption
+msgid "Days of blocking:"
+msgstr ""
+
+#: tmainform.groupbox2.caption
+msgid "Interfaces:"
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "Blocked sites:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Start of blocking"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid "End of blocking"
+msgstr ""
+
+#: tmainform.label4.caption
+msgid "LAN"
+msgstr ""
+
+#: tmainform.label5.caption
+msgid "WAN"
+msgstr ""
+
+#: tmainform.listbox1.hint
+msgid ""
+"ok.ru\n"
+"twitter.com\n"
+"www.tiktok.com\n"
+msgstr ""
+
+#: tmainform.loadfromfileitem.caption
+msgid "Load from file"
+msgstr ""
+
+#: tmainform.mondaycheck.caption
+msgid "Monday"
+msgstr ""
+
+#: tmainform.onlywebcheck.caption
+msgctxt "tmainform.onlywebcheck.caption"
+msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
+msgstr ""
+
+#: tmainform.removeitem.caption
+msgid "Remove"
+msgstr ""
+
+#: tmainform.restartbtn.caption
+msgctxt "tmainform.restartbtn.caption"
+msgid "Restart iptables"
+msgstr ""
+
+#: tmainform.restorebtn.caption
+msgid "Reset"
+msgstr ""
+
+#: tmainform.saturdaycheck.caption
+msgid "Saturday"
+msgstr ""
+
+#: tmainform.savetofileitem.caption
+msgid "Save to file"
+msgstr ""
+
+#: tmainform.starttime.text
+msgid "09:00"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgstr ""
+
+#: tmainform.stoptime.text
+msgid "18:00"
+msgstr ""
+
+#: tmainform.sundaycheck.caption
+msgid "Sunday"
+msgstr ""
+
+#: tmainform.thursdaycheck.caption
+msgid "Thursday"
+msgstr ""
+
+#: tmainform.tuesdaycheck.caption
+msgid "Tuesday"
+msgstr ""
+
+#: tmainform.wednesdaycheck.caption
+msgid "Wednesday"
+msgstr ""
+
+#: tmainform.worklabel.caption
+msgid "Working, wait..."
+msgstr ""
+
+#: unit1.sappendrecord
+msgid "Append a website"
+msgstr ""
+
+#: unit1.sdeleteconfiguration
+msgid "Delete this record (s)?"
+msgstr ""
+
+#: unit1.snoping
+msgid "No Internet! PING is not responding!"
+msgstr ""
+
+#: unit1.srootrequires
+msgctxt "unit1.srootrequires"
+msgid ""
+"Requires running from SuperUser!\n"
+"\n"
+"Mageia Linux: su/password\n"
+"Linux Mint: sudo su/password\n"
+msgstr ""
+
+#: unit1.stimewrong
+msgid "Wrong time range!"
+msgstr ""
+

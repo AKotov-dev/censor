@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SiteBlocker\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: tmainform.addbtn.hint
+msgid "Add Site"
+msgstr "Добавить сайт"
+
+#: tmainform.additem.caption
+msgid "Add"
+msgstr "Добавить"
+
+#: tmainform.caption
+msgid "Сensor"
+msgstr ""
+
+#: tmainform.dictionarycheck.caption
+msgctxt "tmainform.dictionarycheck.caption"
+msgid "Activate the dictionary filtering method"
+msgstr "Активировать метод словарной фильтрации"
+
+#: tmainform.fridaycheck.caption
+msgid "Friday"
+msgstr "Пятница"
+
+#: tmainform.groupbox1.caption
+msgid "Days of blocking:"
+msgstr "Дни блокировки:"
+
+#: tmainform.groupbox3.caption
+msgid "Blocking Methods and Schedule:"
+msgstr "Метод блокировки и расписание:"
+
+#: tmainform.label1.caption
+msgid "Blocked sites:"
+msgstr "Заблокрованные сайты:"
+
+#: tmainform.label2.caption
+msgid "Start of blocking"
+msgstr "Начало блокировки"
+
+#: tmainform.label3.caption
+msgid "End of blocking"
+msgstr "Окончание блокировки"
+
+#: tmainform.listbox1.hint
+msgid ""
+"ok.ru\n"
+"twitter.com\n"
+"www.tiktok.com"
+msgstr ""
+
+#: tmainform.loadbtn.hint
+msgid "Load List"
+msgstr "Загрузить список"
+
+#: tmainform.loadfromfileitem.caption
+msgid "Load from file"
+msgstr "Загрузить из файла"
+
+#: tmainform.mondaycheck.caption
+msgid "Monday"
+msgstr "Понедельник"
+
+#: tmainform.onlywebcheck.caption
+msgctxt "tmainform.onlywebcheck.caption"
+msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
+msgstr "Только Web-серфинг (блокировка VPN, Torrent, Skype и т.д.)"
+
+#: tmainform.removebtn.hint
+msgid "Delete Selected"
+msgstr "Удалить выбранные"
+
+#: tmainform.removeitem.caption
+msgid "Remove"
+msgstr "Удалить"
+
+#: tmainform.restartbtn.caption
+msgctxt "tmainform.restartbtn.caption"
+msgid "Apply"
+msgstr "Применить"
+
+#: tmainform.restorebtn.caption
+msgid "Reset"
+msgstr "Сброс"
+
+#: tmainform.saturdaycheck.caption
+msgid "Saturday"
+msgstr "Суббота"
+
+#: tmainform.savebtn.hint
+msgid "Save List"
+msgstr "Сохранить список"
+
+#: tmainform.savetofileitem.caption
+msgid "Save to file"
+msgstr "Сохранить в файл"
+
+#: tmainform.selectall.hint
+msgid "Select all"
+msgstr "Выбрать все"
+
+#: tmainform.sortbtn.hint
+msgctxt "tmainform.sortbtn.hint"
+msgid "Sort List"
+msgstr "Сортировать список"
+
+#: tmainform.sortitem.caption
+msgctxt "tmainform.sortitem.caption"
+msgid "Sort List"
+msgstr "Сортировать"
+
+#: tmainform.starttime.text
+msgid "09:00"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"
+
+#: tmainform.stoptime.text
+msgid "18:00"
+msgstr ""
+
+#: tmainform.sundaycheck.caption
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: tmainform.thursdaycheck.caption
+msgid "Thursday"
+msgstr "Четверг"
+
+#: tmainform.tuesdaycheck.caption
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: tmainform.wednesdaycheck.caption
+msgid "Wednesday"
+msgstr "Среда"
+
+#: tmainform.worklabel.caption
+msgid "Working, wait..."
+msgstr "Работаю, ждите..."
+
+#: unit1.sappendrecord
+msgid "Append a website"
+msgstr "Добавить сайт"
+
+#: unit1.sdeleteconfiguration
+msgid "Remove selected from list?"
+msgstr "Удалить выбранное из списка?"
+
+#: unit1.srootrequires
+msgctxt "unit1.srootrequires"
+msgid "Root privileges required!"
+msgstr "Требуются привилегии от root!"
+
+#: unit1.stimewrong
+msgid "Wrong time range!"
+msgstr "Неправильный диапазон времени!"

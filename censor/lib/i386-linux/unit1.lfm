@@ -1,0 +1,357 @@
+object MainForm: TMainForm
+  Left = 293
+  Height = 482
+  Top = 128
+  Width = 707
+  ActiveControl = Panel1
+  Caption = 'SiteBlocker'
+  ClientHeight = 482
+  ClientWidth = 707
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'DictionaryCheck.Checked;FridayCheck.Checked;LanEdit.Text;Left;MondayCheck.Checked;OnlyWebCheck.Checked;Panel1.Width;SaturdayCheck.Checked;StartTime.Text;StopTime.Text;SundayCheck.Checked;ThursdayCheck.Checked;Top;TuesdayCheck.Checked;WanEdit.Text;WednesdayCheck.Checked;Height;Width'
+  LCLVersion = '2.0.10.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 462
+    Top = 0
+    Width = 210
+    Align = alLeft
+    ClientHeight = 462
+    ClientWidth = 210
+    TabOrder = 0
+    object ListBox1: TListBox
+      Left = 1
+      Height = 429
+      Hint = 'ok.ru'#10'twitter.com'#10'www.tiktok.com'
+      Top = 32
+      Width = 208
+      Align = alBottom
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Top = 8
+      ItemHeight = 0
+      MultiSelect = True
+      ParentShowHint = False
+      PopupMenu = PopupMenu1
+      ScrollWidth = 206
+      ShowHint = True
+      TabOrder = 0
+      TopIndex = -1
+    end
+    object Label1: TLabel
+      AnchorSideBottom.Control = ListBox1
+      Left = 8
+      Height = 15
+      Top = 9
+      Width = 81
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Bottom = 4
+      Caption = 'Blocked sites:'
+      ParentColor = False
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 210
+    Height = 462
+    Top = 0
+    Width = 5
+  end
+  object Panel2: TPanel
+    Left = 215
+    Height = 462
+    Top = 0
+    Width = 492
+    Align = alClient
+    ClientHeight = 462
+    ClientWidth = 492
+    TabOrder = 2
+    object GroupBox1: TGroupBox
+      Left = 8
+      Height = 152
+      Top = 97
+      Width = 475
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'Days of blocking:'
+      ClientHeight = 134
+      ClientWidth = 473
+      TabOrder = 0
+      object MondayCheck: TCheckBox
+        Left = 9
+        Height = 32
+        Top = 16
+        Width = 82
+        Caption = 'Monday'
+        OnChange = MondayCheckChange
+        TabOrder = 0
+      end
+      object TuesdayCheck: TCheckBox
+        Left = 172
+        Height = 32
+        Top = 13
+        Width = 83
+        Caption = 'Tuesday'
+        OnChange = MondayCheckChange
+        TabOrder = 1
+      end
+      object WednesdayCheck: TCheckBox
+        Left = 330
+        Height = 32
+        Top = 13
+        Width = 104
+        Caption = 'Wednesday'
+        OnChange = MondayCheckChange
+        TabOrder = 2
+      end
+      object ThursdayCheck: TCheckBox
+        Left = 9
+        Height = 32
+        Top = 56
+        Width = 89
+        Caption = 'Thursday'
+        OnChange = MondayCheckChange
+        TabOrder = 3
+      end
+      object FridayCheck: TCheckBox
+        Left = 172
+        Height = 32
+        Top = 56
+        Width = 71
+        Caption = 'Friday'
+        OnChange = MondayCheckChange
+        TabOrder = 4
+      end
+      object SaturdayCheck: TCheckBox
+        Left = 330
+        Height = 32
+        Top = 56
+        Width = 86
+        Caption = 'Saturday'
+        OnChange = MondayCheckChange
+        TabOrder = 5
+      end
+      object SundayCheck: TCheckBox
+        Left = 9
+        Height = 32
+        Top = 96
+        Width = 77
+        Caption = 'Sunday'
+        OnChange = MondayCheckChange
+        TabOrder = 6
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 8
+      Height = 81
+      Top = 9
+      Width = 320
+      Caption = 'Interfaces:'
+      ClientHeight = 63
+      ClientWidth = 318
+      TabOrder = 1
+      object LanEdit: TEdit
+        Left = 160
+        Height = 36
+        Top = 8
+        Width = 106
+        OnChange = MondayCheckChange
+        TabOrder = 0
+      end
+      object Label4: TLabel
+        AnchorSideLeft.Control = LanEdit
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Control = LanEdit
+        AnchorSideBottom.Side = asrCenter
+        Left = 271
+        Height = 15
+        Top = 18
+        Width = 25
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Left = 5
+        Caption = 'LAN'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Control = WanEdit
+        AnchorSideBottom.Side = asrCenter
+        Left = 8
+        Height = 15
+        Top = 18
+        Width = 31
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Left = 5
+        Caption = 'WAN'
+        ParentColor = False
+      end
+      object WanEdit: TEdit
+        AnchorSideLeft.Control = Label5
+        AnchorSideLeft.Side = asrBottom
+        Left = 44
+        Height = 36
+        Top = 8
+        Width = 106
+        BorderSpacing.Left = 5
+        OnChange = MondayCheckChange
+        TabOrder = 1
+      end
+    end
+    object GroupBox3: TGroupBox
+      Left = 8
+      Height = 192
+      Top = 261
+      Width = 475
+      Anchors = [akTop, akLeft, akRight]
+      ClientHeight = 190
+      ClientWidth = 473
+      Enabled = False
+      TabOrder = 2
+      object OnlyWebCheck: TCheckBox
+        Left = 9
+        Height = 32
+        Top = 48
+        Width = 347
+        Caption = 'Only Web surfing (blocking VPN, Torrent, Skype, etc)'
+        TabOrder = 0
+      end
+      object Label2: TLabel
+        AnchorSideLeft.Control = StartTime
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Control = StartTime
+        AnchorSideBottom.Side = asrCenter
+        Left = 109
+        Height = 15
+        Top = 106
+        Width = 100
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Left = 5
+        Caption = 'Start of blocking'
+        ParentColor = False
+      end
+      object RestartBtn: TBitBtn
+        Left = 286
+        Height = 30
+        Top = 150
+        Width = 178
+        Anchors = [akTop, akRight]
+        Caption = 'Restart iptables'
+        OnClick = RestartBtnClick
+        TabOrder = 1
+      end
+      object Label3: TLabel
+        AnchorSideLeft.Control = StopTime
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideBottom.Control = StopTime
+        AnchorSideBottom.Side = asrCenter
+        Left = 109
+        Height = 15
+        Top = 154
+        Width = 95
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Left = 5
+        Caption = 'End of blocking'
+        ParentColor = False
+      end
+      object StartTime: TTimeEdit
+        Left = 8
+        Height = 36
+        Top = 96
+        Width = 96
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 2
+        Text = '09:00'
+      end
+      object StopTime: TTimeEdit
+        Left = 8
+        Height = 36
+        Top = 144
+        Width = 96
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 3
+        Text = '18:00'
+      end
+      object DictionaryCheck: TCheckBox
+        Left = 9
+        Height = 32
+        Top = 8
+        Width = 268
+        Caption = 'Activate the dictionary filtering method'
+        TabOrder = 4
+      end
+      object WorkLabel: TLabel
+        AnchorSideLeft.Control = RestartBtn
+        Left = 286
+        Height = 15
+        Top = 128
+        Width = 92
+        Caption = 'Working, wait...'
+        Font.Color = clGray
+        ParentColor = False
+        ParentFont = False
+        Visible = False
+      end
+    end
+    object RestoreBtn: TBitBtn
+      Left = 361
+      Height = 30
+      Top = 9
+      Width = 122
+      Anchors = [akTop, akRight]
+      Caption = 'Reset'
+      OnClick = RestoreBtnClick
+      TabOrder = 3
+    end
+  end
+  object StaticText1: TStaticText
+    Left = 0
+    Height = 20
+    Top = 462
+    Width = 707
+    Align = alBottom
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
+    Font.Color = clGray
+    Font.Height = -11
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 3
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 128
+    Top = 48
+    object AddItem: TMenuItem
+      Caption = 'Add'
+      OnClick = AddItemClick
+    end
+    object RemoveItem: TMenuItem
+      Caption = 'Remove'
+      OnClick = RemoveItemClick
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object LoadFromFileItem: TMenuItem
+      Caption = 'Load from file'
+      OnClick = LoadFromFileItemClick
+    end
+    object SaveToFileItem: TMenuItem
+      Caption = 'Save to file'
+      OnClick = SaveToFileItemClick
+    end
+  end
+  object MainFormStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 40
+    Top = 112
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 40
+    Top = 48
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 128
+    Top = 112
+  end
+end

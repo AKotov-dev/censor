@@ -1,0 +1,97 @@
+[NAME]
+name=censor
+
+[VERSION]
+version=0.2
+
+[RELEASE]
+release=0.mrx9
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=Censor - Site blocker with scheduler
+1=...
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2021
+
+[SUMMARY]
+summary=Censor - Site blocker with scheduler
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/censor
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=iptables ipset bind-utils gtk2
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[DEB]
+deb=1
+
+[FILES]
+0=/usr/bin/censor
+1=/usr/share/censor/
+2=/usr/share/polkit-1/actions/censor.policy
+3=/usr/share/icons/censor.png
+4=/usr/share/applications/censor.desktop
+5=/usr/share/doc/censor/
+
+[AFTERREMOVE]
+0=#!/bin/bash
+1=#Если удаление (не обновление!)
+2=if [ $1 -eq 0 ]; then
+3=#Удаляем настройки планировщика (RedHat или Debian)
+4=if [ -d '/var/spool/cron/crontabs' ]; then
+5=rm -fv /var/spool/cron/crontabs/root
+6=else
+7=rm -fv /var/spool/cron/root
+8=fi;
+9=
+10=systemctl restart crond.service
+11=
+12=#Удаляем сервис автозапуска и скрипт правил iptables
+13=systemctl disable site-blocker.service
+14=rm -fv /etc/systemd/system/site-blocker.service /usr/local/bin/site-blocker.sh
+15=systemctl daemon-reload
+16=
+17=#Возвращаем iptables в default, удаляем SET BLACKLIST(6)
+18=iptables -F; iptables -X; iptables -t nat -F; iptables -t nat -X
+19=iptables -t mangle -F; iptables -t mangle -X; ipset -X blacklist; ipset -X blacklist6
+20=
+21=iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT
+22=ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT
+23=iptables-save -c > /etc/sysconfig/iptables; systemctl restart iptables.service
+24=fi;
+
+[URL32]
+url32=https://github.com/AKotov-dev/censor
+
+[PROGRAMNAME]
+programname=Censor
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=2.2.4
+
+[INFO]
+0=Censor - Site blocker with scheduler
+1=
+2=v0.2
+3=+ Initial Release
+4=+ Packages for Mageia-8/9 and Ubuntu
