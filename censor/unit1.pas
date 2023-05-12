@@ -582,8 +582,6 @@ begin
     S.Free;
   end;
 
-  Application.ProcessMessages;
-
   //Создаём новый план CRON
   CreateCrontab;
   //Создан ли сервис автозапуска? (возможно был Reset, пересоздать)
@@ -591,6 +589,8 @@ begin
 
   //Делаем исполняемым и запускаем /usr/local/bin/censor.sh
   StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
+
+  Application.ProcessMessages;
 
   WorkLabel.Visible := False;
   ApplyBtn.Enabled := True;
