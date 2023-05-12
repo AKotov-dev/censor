@@ -21,7 +21,6 @@ msgid "Add"
 msgstr "Добавить"
 
 #: tmainform.applybtn.caption
-#, fuzzy
 msgctxt "tmainform.applybtn.caption"
 msgid "Apply"
 msgstr "Применить"
@@ -169,4 +168,3 @@ msgstr "Требуются привилегии от root!"
 #: unit1.stimewrong
 msgid "Wrong time range!"
 msgstr "Неправильный диапазон времени!"
-
