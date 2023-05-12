@@ -8,7 +8,7 @@ It has three blocking options that differ in their effectiveness:
 + dictionary filtering method; useful for blocking "difficult" sites like `youtube.com`
 + only web-surfing; method allows you to disable VPN, Torrent, Skype and other services
 
-![](https://github.com/AKotov-dev/censor/blob/main/ScreenShot1.png)
+![](https://github.com/AKotov-dev/censor/blob/main/ScreenShot2.png)
 
 How to work
 --
