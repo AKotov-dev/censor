@@ -43,7 +43,7 @@ msgstr "Метод блокировки и расписание:"
 
 #: tmainform.label1.caption
 msgid "Blocked sites:"
-msgstr "Заблокрованные сайты:"
+msgstr "Заблокированные сайты:"
 
 #: tmainform.label2.caption
 msgid "Start of blocking"
