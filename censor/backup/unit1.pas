@@ -562,7 +562,7 @@ begin
           ListBox1.Items[i] + '" --algo bm -j REJECT');
       end;
     end;
-    S.Add('fi');
+    S.Add('fi;');
     S.Add('');
 
     S.Add('exit 0');

@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 279
+  Left = 281
   Height = 522
   Top = 123
   Width = 765
@@ -7,6 +7,8 @@ object MainForm: TMainForm
   Caption = 'Сensor'
   ClientHeight = 522
   ClientWidth = 765
+  Font.Height = -13
+  Font.Name = 'Sans'
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'DictionaryCheck.Checked;FridayCheck.Checked;Height;LanEdit.Text;Left;MondayCheck.Checked;OnlyWebCheck.Checked;OpenDialog1.InitialDir;Panel1.Width;SaturdayCheck.Checked;StartTime.Text;StopTime.Text;SundayCheck.Checked;ThursdayCheck.Checked;Top;TuesdayCheck.Checked;WanEdit.Text;WednesdayCheck.Checked;Width;SaveDialog1.InitialDir'
@@ -50,7 +52,7 @@ object MainForm: TMainForm
       Left = 8
       Height = 17
       Top = 7
-      Width = 81
+      Width = 90
       Caption = 'Blocked sites:'
       ParentColor = False
     end
@@ -85,7 +87,7 @@ object MainForm: TMainForm
         Left = 9
         Height = 32
         Top = 16
-        Width = 82
+        Width = 85
         Caption = 'Monday'
         OnChange = MondayCheckChange
         TabOrder = 0
@@ -94,7 +96,7 @@ object MainForm: TMainForm
         Left = 172
         Height = 32
         Top = 13
-        Width = 83
+        Width = 87
         Caption = 'Tuesday'
         OnChange = MondayCheckChange
         TabOrder = 1
@@ -103,7 +105,7 @@ object MainForm: TMainForm
         Left = 330
         Height = 32
         Top = 13
-        Width = 104
+        Width = 109
         Caption = 'Wednesday'
         OnChange = MondayCheckChange
         TabOrder = 2
@@ -112,7 +114,7 @@ object MainForm: TMainForm
         Left = 9
         Height = 32
         Top = 56
-        Width = 89
+        Width = 94
         Caption = 'Thursday'
         OnChange = MondayCheckChange
         TabOrder = 3
@@ -121,7 +123,7 @@ object MainForm: TMainForm
         Left = 172
         Height = 32
         Top = 56
-        Width = 71
+        Width = 74
         Caption = 'Friday'
         OnChange = MondayCheckChange
         TabOrder = 4
@@ -130,7 +132,7 @@ object MainForm: TMainForm
         Left = 330
         Height = 32
         Top = 56
-        Width = 86
+        Width = 92
         Caption = 'Saturday'
         OnChange = MondayCheckChange
         TabOrder = 5
@@ -139,7 +141,7 @@ object MainForm: TMainForm
         Left = 9
         Height = 32
         Top = 96
-        Width = 77
+        Width = 82
         Caption = 'Sunday'
         OnChange = MondayCheckChange
         TabOrder = 6
@@ -166,7 +168,7 @@ object MainForm: TMainForm
         Left = 9
         Height = 32
         Top = 64
-        Width = 347
+        Width = 372
         Anchors = [akLeft]
         Caption = 'Only Web surfing (blocking VPN, Torrent, Skype, etc)'
         TabOrder = 1
@@ -179,7 +181,7 @@ object MainForm: TMainForm
         Left = 126
         Height = 17
         Top = 131
-        Width = 100
+        Width = 107
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
         Caption = 'Start of blocking'
@@ -284,7 +286,7 @@ object MainForm: TMainForm
         Left = 126
         Height = 17
         Top = 192
-        Width = 95
+        Width = 100
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
         Caption = 'End of blocking'
@@ -321,7 +323,7 @@ object MainForm: TMainForm
         Left = 9
         Height = 32
         Top = 14
-        Width = 268
+        Width = 290
         Anchors = [akLeft]
         Caption = 'Activate the dictionary filtering method'
         TabOrder = 0
