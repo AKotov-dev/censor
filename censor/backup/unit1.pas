@@ -224,12 +224,8 @@ begin
   end;
 
   //Проверяем автозапуск crond (Mageia) или cron (Ubuntu) и перезапускаем с новым расписанием
-  StartProcess(
-    'if [[ $(systemctl list-units --all | grep crond.service) ]]; then  ' +
-    '[[ $(systemctl is-enabled crond.service) != enabled ]] && systemctl enable crond.service; '
-    + 'systemctl restart crond.service; ' +
-    'else [[ $(systemctl is-enabled cron.service) != enabled ]] && systemctl enable cron.service; '
-    + 'systemctl restart cron.service; fi');
+  StartProcess('systemctl enable crond.service && systemctl restart crond.service || ' +
+    'systemctl enable cron.service && systemctl restart cron.service');
 end;
 
 //Состояние панели управления
@@ -590,7 +586,7 @@ begin
   //Делаем исполняемым и запускаем /usr/local/bin/censor.sh
   StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 
-  //Application.ProcessMessages;
+  Application.ProcessMessages;
 
   WorkLabel.Visible := False;
   ApplyBtn.Enabled := True;
