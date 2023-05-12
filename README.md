@@ -3,7 +3,7 @@
 `Censor` is designed to block sites from the black list according to the schedule: `days of the week`, `time`.
 
 It has three blocking options that differ in their effectiveness:
-+ normal; sites from the list are blocked using ipset + iptables/ip6tables
++ normal; sites from the list are blocked using `ipset` + `iptables/ip6tables`
 + dictionary filtering method; useful for blocking "difficult" sites like `youtube.com`
 + only web-surfing; method allows you to disable VPN, Torrent, Skype and other services
 
