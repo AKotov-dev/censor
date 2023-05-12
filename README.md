@@ -1,2 +1,2 @@
-# censor
+# Censor
 Scheduled Website Blocker (Parental Control)
