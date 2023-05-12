@@ -25,7 +25,7 @@ type
     AddBtn: TSpeedButton;
     RemoveBtn: TSpeedButton;
     WorkLabel: TLabel;
-    RestartBtn: TBitBtn;
+    ApplyBtn: TBitBtn;
     GroupBox3: TGroupBox;
     Label2: TLabel;
     Label3: TLabel;
@@ -62,7 +62,7 @@ type
       ARect: TRect; State: TOwnerDrawState);
     procedure SelectAllClick(Sender: TObject);
     procedure SortItemClick(Sender: TObject);
-    procedure RestartBtnClick(Sender: TObject);
+    procedure ApplyBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LoadFromFileItemClick(Sender: TObject);
     procedure MondayCheckChange(Sender: TObject);
@@ -416,12 +416,14 @@ begin
   end;
 end;
 
-procedure TMainForm.RestartBtnClick(Sender: TObject);
+procedure TMainForm.ApplyBtnClick(Sender: TObject);
 var
   i: integer;
   Days: string;
   S: TStringList;
 begin
+ // if ApplyBtn.Enabled = False then Exit;
+
   //Проверяем наличие рабочей папки /usr/local/bin
   if not DirectoryExists('/usr/local/bin') then
     StartProcess('mkdir -p /usr/local/bin');
@@ -442,7 +444,7 @@ begin
 
   //Показываем метку-прогресс
   WorkLabel.Visible := True;
-  RestartBtn.Enabled := False;
+  ApplyBtn.Enabled := False;
 
   try
     Days := '';
@@ -531,13 +533,16 @@ begin
       S.Add('');
     end;
 
+    //Формируем списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
     S.Add('ipset -X blacklist; ipset -N blacklist iphash family inet; ipset -F blacklist');
     S.Add('ipset -X blacklist6; ipset -N blacklist6 iphash family inet6; ipset -F blacklist6');
+
     S.Add('for site in $(cat /root/.censor/blacklist); do');
-    S.Add('   for ip in $(host $site | grep "has address" | cut -d " " -f4); do');
+    S.Add('data=$(host $site)');
+    S.Add('   for ip in $(echo "$data" | grep "has address" | cut -d " " -f4); do');
     S.Add('     ipset -A blacklist $ip; done');
-    S.Add('   for ip in $(host $site | grep "has IPv6 address" | cut -d " " -f5); do');
+    S.Add('   for ip in $(echo "$data" | grep "has IPv6 address" | cut -d " " -f5); do');
     S.Add('     ipset -A blacklist6 $ip; done');
     S.Add('done;');
     S.Add('');
@@ -585,7 +590,7 @@ begin
   StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 
   WorkLabel.Visible := False;
-  RestartBtn.Enabled := True;
+  ApplyBtn.Enabled := True;
 end;
 
 end.

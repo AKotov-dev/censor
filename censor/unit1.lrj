@@ -13,7 +13,7 @@
 {"hash":213026730,"name":"tmainform.groupbox3.caption","sourcebytes":[66,108,111,99,107,105,110,103,32,77,101,116,104,111,100,115,32,97,110,100,32,83,99,104,101,100,117,108,101,58],"value":"Blocking Methods and Schedule:"},
 {"hash":114441705,"name":"tmainform.onlywebcheck.caption","sourcebytes":[79,110,108,121,32,87,101,98,32,115,117,114,102,105,110,103,32,40,98,108,111,99,107,105,110,103,32,86,80,78,44,32,84,111,114,114,101,110,116,44,32,83,107,121,112,101,44,32,101,116,99,41],"value":"Only Web surfing (blocking VPN, Torrent, Skype, etc)"},
 {"hash":85406311,"name":"tmainform.label2.caption","sourcebytes":[83,116,97,114,116,32,111,102,32,98,108,111,99,107,105,110,103],"value":"Start of blocking"},
-{"hash":4749113,"name":"tmainform.restartbtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
+{"hash":4749113,"name":"tmainform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
 {"hash":86890135,"name":"tmainform.label3.caption","sourcebytes":[69,110,100,32,111,102,32,98,108,111,99,107,105,110,103],"value":"End of blocking"},
 {"hash":3394864,"name":"tmainform.starttime.text","sourcebytes":[48,57,58,48,48],"value":"09:00"},
 {"hash":3456304,"name":"tmainform.stoptime.text","sourcebytes":[49,56,58,48,48],"value":"18:00"},

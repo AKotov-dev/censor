@@ -9,6 +9,11 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#: tmainform.applybtn.caption
+msgctxt "tmainform.applybtn.caption"
+msgid "Apply"
+msgstr ""
+
 #: tmainform.caption
 msgid "Сensor"
 msgstr ""
@@ -70,10 +75,6 @@ msgstr ""
 
 #: tmainform.removeitem.caption
 msgid "Remove"
-msgstr ""
-
-#: tmainform.restartbtn.caption
-msgid "Apply"
 msgstr ""
 
 #: tmainform.restorebtn.caption

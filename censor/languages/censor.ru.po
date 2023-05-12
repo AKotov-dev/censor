@@ -20,6 +20,12 @@ msgstr "Добавить сайт"
 msgid "Add"
 msgstr "Добавить"
 
+#: tmainform.applybtn.caption
+#, fuzzy
+msgctxt "tmainform.applybtn.caption"
+msgid "Apply"
+msgstr "Применить"
+
 #: tmainform.caption
 msgid "Сensor"
 msgstr ""
@@ -84,11 +90,6 @@ msgstr "Удалить выбранные"
 #: tmainform.removeitem.caption
 msgid "Remove"
 msgstr "Удалить"
-
-#: tmainform.restartbtn.caption
-msgctxt "tmainform.restartbtn.caption"
-msgid "Apply"
-msgstr "Применить"
 
 #: tmainform.restorebtn.caption
 msgid "Reset"
@@ -168,3 +169,4 @@ msgstr "Требуются привилегии от root!"
 #: unit1.stimewrong
 msgid "Wrong time range!"
 msgstr "Неправильный диапазон времени!"
+

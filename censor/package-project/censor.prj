@@ -2,7 +2,7 @@
 name=censor
 
 [VERSION]
-version=0.2
+version=0.3
 
 [RELEASE]
 release=0.mrx9
@@ -64,8 +64,8 @@ deb=1
 10=systemctl restart crond.service
 11=
 12=#Удаляем сервис автозапуска и скрипт правил iptables
-13=systemctl disable site-blocker.service
-14=rm -fv /etc/systemd/system/site-blocker.service /usr/local/bin/site-blocker.sh
+13=systemctl disable censor.service
+14=rm -fv /etc/systemd/system/censor.service /usr/local/bin/censor.sh
 15=systemctl daemon-reload
 16=
 17=#Возвращаем iptables в default, удаляем SET BLACKLIST(6)
@@ -92,6 +92,10 @@ toolversion=2.2.4
 [INFO]
 0=Censor - Site blocker with scheduler
 1=
-2=v0.2
-3=+ Initial Release
+2=v0.3
+3=+ Improved algorithm for building blacklists
 4=+ Packages for Mageia-8/9 and Ubuntu
+5=
+6=v0.2
+7=+ Initial Release
+8=+ Packages for Mageia-8/9 and Ubuntu

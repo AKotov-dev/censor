@@ -187,7 +187,7 @@ object MainForm: TMainForm
         Caption = 'Start of blocking'
         ParentColor = False
       end
-      object RestartBtn: TBitBtn
+      object ApplyBtn: TBitBtn
         AnchorSideTop.Control = Label2
         AnchorSideTop.Side = asrBottom
         AnchorSideBottom.Control = StopTime
@@ -275,7 +275,7 @@ object MainForm: TMainForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = RestartBtnClick
+        OnClick = ApplyBtnClick
         TabOrder = 4
       end
       object Label3: TLabel
@@ -329,8 +329,8 @@ object MainForm: TMainForm
         TabOrder = 0
       end
       object WorkLabel: TLabel
-        AnchorSideLeft.Control = RestartBtn
-        AnchorSideBottom.Control = RestartBtn
+        AnchorSideLeft.Control = ApplyBtn
+        AnchorSideBottom.Control = ApplyBtn
         Left = 339
         Height = 17
         Top = 148
