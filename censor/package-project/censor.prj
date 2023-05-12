@@ -22,7 +22,7 @@ maintainer=Alex Kotov
 vendor=alex_q_2000 (C) 2021
 
 [SUMMARY]
-summary=Censor - Site blocker with scheduler
+summary=Censor - WebSite blocker with scheduler
 
 [URLCOPY]
 urlcopy=https://github.com/AKotov-dev/censor
@@ -90,7 +90,7 @@ devtool=Lazarus
 toolversion=2.2.4
 
 [INFO]
-0=Censor - Site blocker with scheduler
+0=Censor - WebSite blocker with scheduler
 1=
 2=v0.4
 3=+ Checking if crond/cron is enabled
