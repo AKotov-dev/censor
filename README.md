@@ -1,5 +1,5 @@
 # Censor - Scheduled Website Blocker
-**Dependencies:** iptables, ipset, cronie, bind-utils, polkit, gtk2
+**Dependencies:** iptables, ipset, systemd, cronie, bind-utils, polkit, gtk2
 
 `Censor` is designed to block sites from the black list according to the schedule: `days of the week`, `time`.
 
