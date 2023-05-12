@@ -1,4 +1,4 @@
-# Censor - Scheduled Website Blocker (Parental Control)
+# Censor - Scheduled Website Blocker
 
 `Censor` is designed to block sites from the black list according to the schedule: `days of the week`, `time`.
 
