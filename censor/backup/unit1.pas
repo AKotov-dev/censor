@@ -224,7 +224,11 @@ begin
   end;
 
   StartProcess(
-    '[[ $(systemctl list-units | grep "crond.service") ]] && systemctl restart crond.service || systemctl restart cron.service');
+    'if [[ $(systemctl list-units --all | grep crond.service) ]]; then  ' +
+    '[[ $(systemctl is-enabled crond.service) != enabled ]] && systemctl enable crond.service; '
+    + 'systemctl restart crond.service; ' +
+    'else [[ $(systemctl is-enabled cron.service) != enabled ]] && systemctl enable cron.service; '
+    + 'systemctl restart cron.service; fi');
 end;
 
 //Состояние панели управления
@@ -422,8 +426,6 @@ var
   Days: string;
   S: TStringList;
 begin
- // if ApplyBtn.Enabled = False then Exit;
-
   //Проверяем наличие рабочей папки /usr/local/bin
   if not DirectoryExists('/usr/local/bin') then
     StartProcess('mkdir -p /usr/local/bin');
