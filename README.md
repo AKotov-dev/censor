@@ -18,4 +18,4 @@ Open a browser and check your work. If you changed the blocking rules again, **t
 
 In case the site is not blocked (eg `yotube.com` or similar), add another one of the same address with `www.` prefix at the beginning (`www.youtube.com`) and click `Apply`. Reopen your browser and check the blocking again.
 
-**Similar program:** [SiteBlocker](https://github.com/AKotov-dev/siteblocker) - a small blocker of sites and other content by time (Linux-router)
+**Similar program:** [SiteBlocker](https://github.com/AKotov-dev/siteblocker) - a small blocker of sites and other content by time (Linux-router).
