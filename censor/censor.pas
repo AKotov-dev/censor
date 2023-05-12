@@ -22,7 +22,7 @@ begin
   end;
 
   RequireDerivedFormResource := True;
-  Application.Title:='Сensor v0.3';
+  Application.Title:='Сensor v0.4';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
