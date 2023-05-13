@@ -172,7 +172,7 @@ msgstr "Удалить выбранное из списка?"
 
 #: unit1.seditrecord
 msgid "Editing an entry:"
-msgstr "Редактировать запись:"
+msgstr "Редактирование записи:"
 
 #: unit1.srootrequires
 msgctxt "unit1.srootrequires"
