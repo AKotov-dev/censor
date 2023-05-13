@@ -224,8 +224,8 @@ begin
   end;
 
   //Проверяем автозапуск crond (Mageia) или cron (Ubuntu) и перезапускаем с новым расписанием
-  StartProcess('systemctl enable crond.service && systemctl restart crond.service || ' +
-    'systemctl enable cron.service && systemctl restart cron.service');
+  StartProcess('(systemctl enable crond.service && systemctl restart crond.service) || '
+    + '(systemctl enable cron.service && systemctl restart cron.service)');
 end;
 
 //Состояние панели управления

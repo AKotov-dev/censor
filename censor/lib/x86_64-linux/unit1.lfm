@@ -1,11 +1,11 @@
 object MainForm: TMainForm
   Left = 281
-  Height = 522
+  Height = 525
   Top = 123
   Width = 765
   ActiveControl = ListBox1
   Caption = 'Сensor'
-  ClientHeight = 522
+  ClientHeight = 525
   ClientWidth = 765
   Font.Height = -13
   Font.Name = 'Sans'
@@ -15,18 +15,18 @@ object MainForm: TMainForm
   LCLVersion = '2.2.4.0'
   object Panel1: TPanel
     Left = 0
-    Height = 502
+    Height = 505
     Top = 0
     Width = 253
     Align = alLeft
-    ClientHeight = 502
+    ClientHeight = 505
     ClientWidth = 253
     TabOrder = 0
     object ListBox1: TListBox
       AnchorSideTop.Control = Label1
       AnchorSideTop.Side = asrBottom
       Left = 1
-      Height = 473
+      Height = 476
       Hint = 'ok.ru'#10'twitter.com'#10'www.tiktok.com'
       Top = 28
       Width = 251
@@ -59,18 +59,18 @@ object MainForm: TMainForm
   end
   object Splitter1: TSplitter
     Left = 253
-    Height = 502
+    Height = 505
     Top = 0
     Width = 5
   end
   object Panel2: TPanel
     Left = 258
-    Height = 502
+    Height = 505
     Top = 0
     Width = 507
     Align = alClient
     Anchors = [akLeft, akRight, akBottom]
-    ClientHeight = 502
+    ClientHeight = 505
     ClientWidth = 507
     TabOrder = 2
     object GroupBox1: TGroupBox
@@ -86,7 +86,7 @@ object MainForm: TMainForm
       object MondayCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 16
+        Top = 13
         Width = 85
         Caption = 'Monday'
         OnChange = MondayCheckChange
@@ -153,21 +153,21 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = Panel2
       AnchorSideBottom.Side = asrBottom
       Left = 8
-      Height = 246
+      Height = 249
       Top = 247
       Width = 490
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Top = 20
       BorderSpacing.Bottom = 8
       Caption = 'Blocking Methods and Schedule:'
-      ClientHeight = 228
+      ClientHeight = 231
       ClientWidth = 488
       Enabled = False
       TabOrder = 1
       object OnlyWebCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 64
+        Top = 65
         Width = 372
         Anchors = [akLeft]
         Caption = 'Only Web surfing (blocking VPN, Torrent, Skype, etc)'
@@ -180,7 +180,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 131
+        Top = 133
         Width = 107
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -195,7 +195,7 @@ object MainForm: TMainForm
         Cursor = crHandPoint
         Left = 339
         Height = 53
-        Top = 167
+        Top = 170
         Width = 142
         Anchors = [akRight, akBottom]
         Caption = 'Apply'
@@ -285,7 +285,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 192
+        Top = 195
         Width = 100
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -295,7 +295,7 @@ object MainForm: TMainForm
       object StartTime: TTimeEdit
         Left = 9
         Height = 37
-        Top = 122
+        Top = 124
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft]
@@ -309,7 +309,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrBottom
         Left = 9
         Height = 37
-        Top = 183
+        Top = 186
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft, akBottom]
@@ -333,7 +333,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Control = ApplyBtn
         Left = 339
         Height = 17
-        Top = 148
+        Top = 151
         Width = 92
         Anchors = [akLeft, akBottom]
         BorderSpacing.Bottom = 2
@@ -911,7 +911,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 502
+    Top = 505
     Width = 765
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru'

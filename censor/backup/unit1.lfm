@@ -86,7 +86,7 @@ object MainForm: TMainForm
       object MondayCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 16
+        Top = 13
         Width = 85
         Caption = 'Monday'
         OnChange = MondayCheckChange
