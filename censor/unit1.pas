@@ -403,6 +403,7 @@ begin
   end;
 end;
 
+//Редактирование записи
 procedure TMainForm.EditItemClick(Sender: TObject);
 var
   S: string;
@@ -413,7 +414,10 @@ begin
     if not InputQuery('Censor', SEditRecord, S) or (Trim(S) = '') then
       Exit
     else
+    begin
       ListBox1.Items.Strings[ListBox1.ItemIndex] := S;
+      ListBox1.Items.SaveToFile('/root/.censor/blacklist');
+    end;
   end;
 end;
 
