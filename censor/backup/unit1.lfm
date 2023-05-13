@@ -1,11 +1,11 @@
 object MainForm: TMainForm
   Left = 281
-  Height = 535
+  Height = 539
   Top = 128
   Width = 766
   ActiveControl = ListBox1
   Caption = 'Сensor'
-  ClientHeight = 535
+  ClientHeight = 539
   ClientWidth = 766
   Font.Height = -13
   Font.Name = 'Sans'
@@ -15,18 +15,18 @@ object MainForm: TMainForm
   LCLVersion = '2.2.4.0'
   object Panel1: TPanel
     Left = 0
-    Height = 515
+    Height = 519
     Top = 0
     Width = 253
     Align = alLeft
-    ClientHeight = 515
+    ClientHeight = 519
     ClientWidth = 253
     TabOrder = 0
     object ListBox1: TListBox
       AnchorSideTop.Control = Label1
       AnchorSideTop.Side = asrBottom
       Left = 1
-      Height = 486
+      Height = 490
       Hint = 'ok.ru'#10'twitter.com'#10'www.tiktok.com'
       Top = 28
       Width = 251
@@ -60,18 +60,18 @@ object MainForm: TMainForm
   end
   object Splitter1: TSplitter
     Left = 253
-    Height = 515
+    Height = 519
     Top = 0
     Width = 5
   end
   object Panel2: TPanel
     Left = 258
-    Height = 515
+    Height = 519
     Top = 0
     Width = 508
     Align = alClient
     Anchors = [akLeft, akRight, akBottom]
-    ClientHeight = 515
+    ClientHeight = 519
     ClientWidth = 508
     TabOrder = 2
     object GroupBox1: TGroupBox
@@ -154,21 +154,21 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = Panel2
       AnchorSideBottom.Side = asrBottom
       Left = 8
-      Height = 254
+      Height = 258
       Top = 252
       Width = 491
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Top = 20
       BorderSpacing.Bottom = 8
       Caption = 'Blocking Methods and Schedule:'
-      ClientHeight = 236
+      ClientHeight = 240
       ClientWidth = 489
       Enabled = False
       TabOrder = 1
       object OnlyWebCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 66
+        Top = 67
         Width = 372
         Anchors = [akLeft]
         Caption = 'Only Web surfing (blocking VPN, Torrent, Skype, etc)'
@@ -181,7 +181,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 136
+        Top = 138
         Width = 107
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -196,7 +196,7 @@ object MainForm: TMainForm
         Cursor = crHandPoint
         Left = 340
         Height = 53
-        Top = 175
+        Top = 179
         Width = 142
         Anchors = [akRight, akBottom]
         Caption = 'Apply'
@@ -286,7 +286,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 200
+        Top = 204
         Width = 100
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -296,7 +296,7 @@ object MainForm: TMainForm
       object StartTime: TTimeEdit
         Left = 9
         Height = 37
-        Top = 127
+        Top = 129
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft]
@@ -310,7 +310,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrBottom
         Left = 9
         Height = 37
-        Top = 191
+        Top = 195
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft, akBottom]
@@ -323,7 +323,7 @@ object MainForm: TMainForm
       object DictionaryCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 14
+        Top = 15
         Width = 290
         Anchors = [akLeft]
         Caption = 'Activate the dictionary filtering method'
@@ -334,7 +334,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Control = ApplyBtn
         Left = 340
         Height = 17
-        Top = 156
+        Top = 160
         Width = 92
         Anchors = [akLeft, akBottom]
         BorderSpacing.Bottom = 2
@@ -998,7 +998,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 515
+    Top = 519
     Width = 766
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru'
