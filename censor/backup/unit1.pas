@@ -403,6 +403,7 @@ begin
   end;
 end;
 
+//Редактирование записи
 procedure TMainForm.EditItemClick(Sender: TObject);
 var
   S: string;
