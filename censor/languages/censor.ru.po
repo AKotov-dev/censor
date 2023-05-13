@@ -34,6 +34,16 @@ msgctxt "tmainform.dictionarycheck.caption"
 msgid "Activate the dictionary filtering method"
 msgstr "Активировать метод словарной фильтрации"
 
+#: tmainform.editbutton.hint
+msgctxt "tmainform.editbutton.hint"
+msgid "Edit an entry"
+msgstr "Редактировать"
+
+#: tmainform.edititem.caption
+msgctxt "tmainform.edititem.caption"
+msgid "Edit an entry"
+msgstr "Редактировать"
+
 #: tmainform.fridaycheck.caption
 msgid "Friday"
 msgstr "Пятница"
@@ -159,6 +169,10 @@ msgstr "Добавить сайт"
 #: unit1.sdeleteconfiguration
 msgid "Remove selected from list?"
 msgstr "Удалить выбранное из списка?"
+
+#: unit1.seditrecord
+msgid "Editing an entry:"
+msgstr "Редактировать запись:"
 
 #: unit1.srootrequires
 msgctxt "unit1.srootrequires"

@@ -16,6 +16,8 @@ type
   TMainForm = class(TForm)
     DictionaryCheck: TCheckBox;
     ImageList1: TImageList;
+    EditItem: TMenuItem;
+    Separator2: TMenuItem;
     SortItem: TMenuItem;
     Separator1: TMenuItem;
     LoadBtn: TSpeedButton;
@@ -24,6 +26,7 @@ type
     SelectAll: TSpeedButton;
     AddBtn: TSpeedButton;
     RemoveBtn: TSpeedButton;
+    EditButton: TSpeedButton;
     WorkLabel: TLabel;
     ApplyBtn: TBitBtn;
     GroupBox3: TGroupBox;
@@ -60,6 +63,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ListBox1DrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure EditItemClick(Sender: TObject);
     procedure SelectAllClick(Sender: TObject);
     procedure SortItemClick(Sender: TObject);
     procedure ApplyBtnClick(Sender: TObject);
@@ -89,6 +93,7 @@ resourcestring
   SAppendRecord = 'Append a website';
   SRootRequires = 'Root privileges required!';
   STimeWrong = 'Wrong time range!';
+  SEditRecord = 'Editing an entry:';
 
 var
   MainForm: TMainForm;
@@ -395,6 +400,20 @@ begin
     end;
   finally
     BitMap.Free;
+  end;
+end;
+
+procedure TMainForm.EditItemClick(Sender: TObject);
+var
+  S: string;
+begin
+  if ListBox1.SelCount <> 0 then
+  begin
+    S := ListBox1.Items.Strings[ListBox1.ItemIndex];
+    if not InputQuery('Censor', SEditRecord, S) or (Trim(S) = '') then
+      Exit
+    else
+      ListBox1.Items.Strings[ListBox1.ItemIndex] := S;
   end;
 end;
 

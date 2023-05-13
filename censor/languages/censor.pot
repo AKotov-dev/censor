@@ -22,6 +22,16 @@ msgstr ""
 msgid "Activate the dictionary filtering method"
 msgstr ""
 
+#: tmainform.editbutton.hint
+msgctxt "tmainform.editbutton.hint"
+msgid "Edit an entry"
+msgstr ""
+
+#: tmainform.edititem.caption
+msgctxt "tmainform.edititem.caption"
+msgid "Edit an entry"
+msgstr ""
+
 #: tmainform.fridaycheck.caption
 msgid "Friday"
 msgstr ""
@@ -145,6 +155,10 @@ msgstr ""
 
 #: unit1.sdeleteconfiguration
 msgid "Remove selected from list?"
+msgstr ""
+
+#: unit1.seditrecord
+msgid "Editing an entry:"
 msgstr ""
 
 #: unit1.srootrequires
