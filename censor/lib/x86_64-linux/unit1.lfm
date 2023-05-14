@@ -331,23 +331,22 @@ object MainForm: TMainForm
         Caption = 'Activate the dictionary filtering method'
         TabOrder = 0
       end
-      object WorkLabel: TLabel
+      object ProgressBar1: TProgressBar
         AnchorSideLeft.Control = ApplyBtn
-        AnchorSideBottom.Control = ApplyBtn
+        AnchorSideRight.Control = ApplyBtn
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Label2
+        AnchorSideBottom.Side = asrCenter
         Left = 340
-        Height = 17
-        Top = 166
-        Width = 92
-        Anchors = [akLeft, akBottom]
-        BorderSpacing.Bottom = 2
-        Caption = 'Working, wait...'
-        Font.Color = clGray
-        ParentColor = False
-        ParentFont = False
+        Height = 8
+        Top = 146
+        Width = 142
+        Anchors = [akLeft, akRight, akBottom]
+        TabOrder = 5
         Visible = False
       end
     end
-    object RestoreBtn: TBitBtn
+    object ResetBtn: TBitBtn
       Cursor = crHandPoint
       Left = 388
       Height = 40
@@ -391,7 +390,7 @@ object MainForm: TMainForm
         F4CF3B45F51A0000000000000000000000000000000000000000000000000000
         00000000000000000000000000003B45F51A3643F4CF3642F4BC
       }
-      OnClick = RestoreBtnClick
+      OnClick = ResetBtnClick
       TabOrder = 2
     end
     object LoadBtn: TSpeedButton

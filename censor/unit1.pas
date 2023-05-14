@@ -17,6 +17,7 @@ type
     DictionaryCheck: TCheckBox;
     ImageList1: TImageList;
     EditItem: TMenuItem;
+    ProgressBar1: TProgressBar;
     Separator2: TMenuItem;
     SortItem: TMenuItem;
     Separator1: TMenuItem;
@@ -27,14 +28,13 @@ type
     AddBtn: TSpeedButton;
     DeleteBtn: TSpeedButton;
     EditBtn: TSpeedButton;
-    WorkLabel: TLabel;
     ApplyBtn: TBitBtn;
     GroupBox3: TGroupBox;
     Label2: TLabel;
     Label3: TLabel;
     OnlyWebCheck: TCheckBox;
     OpenDialog1: TOpenDialog;
-    RestoreBtn: TBitBtn;
+    ResetBtn: TBitBtn;
     SaveDialog1: TSaveDialog;
     StartTime: TTimeEdit;
     StaticText1: TStaticText;
@@ -72,15 +72,13 @@ type
     procedure LoadFromFileItemClick(Sender: TObject);
     procedure MondayCheckChange(Sender: TObject);
     procedure RemoveItemClick(Sender: TObject);
-    procedure RestoreBtnClick(Sender: TObject);
+    procedure ResetBtnClick(Sender: TObject);
     procedure SaveToFileItemClick(Sender: TObject);
     procedure DaysCheck;
-    procedure StartSpinEditKeyDown(Sender: TObject; var Key: word;
-      Shift: TShiftState);
-    procedure StartProcess(command: string);
+    procedure StartProcess(command, opt: string);
     procedure CreateServices;
     procedure CreateCrontab;
-    procedure RestoreCheck;
+    procedure ResetCheck;
 
   private
 
@@ -103,41 +101,43 @@ var
 
 implementation
 
+uses start_trd;
+
 {$R *.lfm}
 
 { TMainForm }
 
 
 //Общая процедура запуска команд
-procedure TMainForm.StartProcess(command: string);
+procedure TMainForm.StartProcess(command, opt: string);
 var
   ExProcess: TProcess;
 begin
-  Screen.Cursor := crHourGlass;
-  Application.ProcessMessages;
   ExProcess := TProcess.Create(nil);
   try
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(command);
-    ExProcess.Options := ExProcess.Options + [poWaitOnExit];
+
+    if opt = 'wait' then
+      ExProcess.Options := [poWaitOnExit];
+
     ExProcess.Execute;
   finally
     ExProcess.Free;
-    Screen.Cursor := crDefault;
   end;
 end;
 
-//Состояние кнопки Restore
-procedure TMainForm.RestoreCheck;
+//Состояние кнопки Reset
+procedure TMainForm.ResetCheck;
 begin
   //Проверка созданных файлов
   if FileExists('/etc/systemd/system/censor.service') or
     FileExists('/var/spool/cron/root') or
     FileExists('/var/spool/cron/crontabs/root') then
-    RestoreBtn.Enabled := True
+    ResetBtn.Enabled := True
   else
-    RestoreBtn.Enabled := False;
+    ResetBtn.Enabled := False;
 end;
 
 //Cоздаём сервис /etc/systemd/system/censor.service
@@ -163,18 +163,18 @@ begin
       S.Add('[Install]');
       S.Add('WantedBy=multi-user.target');
       S.SaveToFile('/etc/systemd/system/censor.service');
-      StartProcess('systemctl enable censor.service');
+
+      StartProcess('systemctl enable censor.service', 'nowait');
     end;
 
-    //Проверка состояния кнопки Restore
-    RestoreCheck;
-
+    //Проверка состояния кнопки Reset
+    ResetCheck;
   finally
     S.Free;
   end;
 end;
 
-//Делаем план Crontab и активируем
+//Создаём план Crontab и активируем
 procedure TMainForm.CreateCrontab;
 var
   Days: string;
@@ -219,12 +219,12 @@ begin
     if DirectoryExists('/var/spool/cron/crontabs') then
     begin
       S.SaveToFile('/var/spool/cron/crontabs/root');
-      StartProcess('chmod 600 /var/spool/cron/crontabs/root');
+      StartProcess('chmod 600 /var/spool/cron/crontabs/root', 'wait');
     end
     else
     begin
       S.SaveToFile('/var/spool/cron/root');
-      StartProcess('chmod 600 /var/spool/cron/root');
+      StartProcess('chmod 600 /var/spool/cron/root', 'wait');
     end;
 
   finally
@@ -233,7 +233,7 @@ begin
 
   //Проверяем автозапуск crond (Mageia) или cron (Ubuntu) и перезапускаем с новым расписанием
   StartProcess('(systemctl enable crond.service && systemctl restart crond.service) || '
-    + '(systemctl enable cron.service && systemctl restart cron.service)');
+    + '(systemctl enable cron.service && systemctl restart cron.service)', 'nowait');
 end;
 
 //Состояние панели управления
@@ -247,12 +247,6 @@ begin
     GroupBox3.Enabled := False;
 end;
 
-procedure TMainForm.StartSpinEditKeyDown(Sender: TObject; var Key: word;
-  Shift: TShiftState);
-begin
-  Key := $0;
-end;
-
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   //Рабочая директория в профиле
@@ -264,8 +258,8 @@ begin
   if FileExists('/root/.censor/blacklist') then
     ListBox1.Items.LoadFromFile('/root/.censor/blacklist');
 
-  //Состояние кнопки Restore
-  RestoreCheck;
+  //Состояние кнопки Reset
+  ResetCheck;
 end;
 
 //Загрузка черного списка
@@ -277,12 +271,14 @@ begin
     ListBox1.Items.SaveToFile('/root/.censor/blacklist');
     if ListBox1.Count <> 0 then ListBox1.ItemIndex := 0;
 
+    //Состояние панели управления
     DaysCheck;
   end;
 end;
 
 procedure TMainForm.MondayCheckChange(Sender: TObject);
 begin
+  //Состояние панели управления
   DaysCheck;
 end;
 
@@ -304,14 +300,17 @@ begin
 
       ListBox1.Items.SaveToFile('/root/.censor/blacklist');
 
+      //Состояние панели управления
       DaysCheck;
     end;
 end;
 
 //Сброс
-procedure TMainForm.RestoreBtnClick(Sender: TObject);
+procedure TMainForm.ResetBtnClick(Sender: TObject);
 begin
-  Screen.Cursor := crHourGlass;
+  ResetBtn.Enabled := False;
+  Application.ProcessMessages;
+
   //Удаляем настройки планировщика (RedHat или Debian)
   if DirectoryExists('/var/spool/cron/crontabs') then
     DeleteFile('/var/spool/cron/crontabs/root')
@@ -319,11 +318,13 @@ begin
     DeleteFile('/var/spool/cron/root');
 
   StartProcess(
-    '[[ $(systemctl list-units | grep "crond.service") ]] && systemctl restart crond.service || systemctl restart cron.service');
+    '[[ $(systemctl list-units | grep "crond.service") ]] && systemctl restart crond.service || systemctl restart cron.service',
+    'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +
-    'rm -f /etc/systemd/system/censor.service /usr/local/bin/censor.sh; systemctl daemon-reload');
+    'rm -f /etc/systemd/system/censor.service /usr/local/bin/censor.sh; systemctl daemon-reload',
+    'wait');
 
   //Возвращаем iptables/ip6tables в Default, удаляем blacklist(6)
   StartProcess(
@@ -332,11 +333,11 @@ begin
     'ip6tables -F; ip6tables -X; ip6tables -t nat -F; ip6tables -t nat -X; ' +
     'ip6tables -t mangle -F; ip6tables -t mangle -X; ipset -X blacklist6; ' +
     'iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT; ' +
-    'ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT');
+    'ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT',
+    'nowait');
 
-  //Проверка состояния кнопки Restore
-  RestoreCheck;
-  Screen.Cursor := crDefault;
+  //Проверка состояния кнопки Reset
+  ResetCheck;
 end;
 
 //Сохранить список
@@ -377,6 +378,7 @@ begin
 
   ListBox1.Items.SaveToFile('/root/.censor/blacklist');
 
+  //Состояние панели управления
   DaysCheck;
 end;
 
@@ -407,6 +409,7 @@ begin
   StopTime.Button.Width := StopTime.Button.Height;
 end;
 
+//Иконки списка
 procedure TMainForm.ListBox1DrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var
@@ -481,10 +484,11 @@ var
   i: integer;
   Days: string;
   S: TStringList;
+  FStartScript: TThread;
 begin
   //Проверяем наличие рабочей папки /usr/local/bin
   if not DirectoryExists('/usr/local/bin') then
-    StartProcess('mkdir -p /usr/local/bin');
+    StartProcess('mkdir -p /usr/local/bin', 'wait');
 
   //Перечитываем время (валидность, если ввод был ручным)
   StartTime.Refresh;
@@ -499,10 +503,6 @@ begin
 
   //Сохраняем настройки
   MainFormStorage.Save;
-
-  //Показываем метку-прогресс
-  WorkLabel.Visible := True;
-  ApplyBtn.Enabled := False;
 
   try
     Days := '';
@@ -637,18 +637,18 @@ begin
     S.Free;
   end;
 
+  //Запускаем скрипт блокировки
+  FStartScript := StartScript.Create(False);
+  FStartScript.Priority := tpNormal;
+
   //Создаём новый план CRON
   CreateCrontab;
   //Создан ли сервис автозапуска? (возможно был Reset, пересоздать)
   CreateServices;
 
+  //Это отправляем в поток...
   //Делаем исполняемым и запускаем /usr/local/bin/censor.sh
-  StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
-
-  Application.ProcessMessages;
-
-  WorkLabel.Visible := False;
-  ApplyBtn.Enabled := True;
+  // StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 end;
 
 end.

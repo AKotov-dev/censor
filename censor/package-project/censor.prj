@@ -2,7 +2,7 @@
 name=censor
 
 [VERSION]
-version=0.6
+version=0.7
 
 [RELEASE]
 release=0.mrx9
@@ -95,25 +95,29 @@ toolversion=2.2.4
 [INFO]
 0=Censor - WebSite blocker with scheduler
 1=
-2=v0.6
-3=+ [Insert] - Add, [F4] - Edit, [F8] - Delete
-4=+ Duplicate control when Adding/Editing
-5=+ Packages for Mageia-8 (ROSA 12.3)/9, Fedora-36
-6=
-7=v0.5
-8=+ Cosmetic edits
-9=+ DblClick - Editing a list entry
-10=+ Packages for Mageia-8/9 and Ubuntu
-11=
-12=v0.4
-13=+ Checking if crond/cron is enabled
-14=+ Added "cronie" dependency (spec)
-15=+ Packages for Mageia-8/9 and Ubuntu
-16=
-17=v0.3
-18=+ Improved algorithm for building blacklists
+2=v0.7
+3=+ Multi-threaded model (improved response)
+4=+ Packages for Mageia-8 (ROSA 12.3)/9, Fedora-36
+5=
+6=v0.6
+7=+ [Insert] - Add, [F4] - Edit, [F8] - Delete
+8=+ Duplicate control when Adding/Editing
+9=+ Packages for Mageia-8 (ROSA 12.3)/9, Fedora-36
+10=
+11=v0.5
+12=+ Cosmetic edits
+13=+ DblClick - Editing a list entry
+14=+ Packages for Mageia-8/9 and Ubuntu
+15=
+16=v0.4
+17=+ Checking if crond/cron is enabled
+18=+ Added "cronie" dependency (spec)
 19=+ Packages for Mageia-8/9 and Ubuntu
 20=
-21=v0.2
-22=+ Initial Release
+21=v0.3
+22=+ Improved algorithm for building blacklists
 23=+ Packages for Mageia-8/9 and Ubuntu
+24=
+25=v0.2
+26=+ Initial Release
+27=+ Packages for Mageia-8/9 and Ubuntu

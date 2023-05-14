@@ -89,7 +89,8 @@ msgctxt "tmainform.removeitem.caption"
 msgid "Delete selected [F8]"
 msgstr ""
 
-#: tmainform.restorebtn.caption
+#: tmainform.resetbtn.caption
+msgctxt "tmainform.resetbtn.caption"
 msgid "Reset"
 msgstr ""
 
@@ -145,10 +146,6 @@ msgstr ""
 
 #: tmainform.wednesdaycheck.caption
 msgid "Wednesday"
-msgstr ""
-
-#: tmainform.worklabel.caption
-msgid "Working, wait..."
 msgstr ""
 
 #: unit1.sappendrecord

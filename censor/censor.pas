@@ -3,11 +3,12 @@ program censor;
 {$mode objfpc}{$H+}
 
 uses
- {$IFDEF UNIX} {$IFDEF UseCThreads}
-  cthreads,   {$ENDIF}   {$ENDIF}
+ {$IFDEF UNIX}
+  cthreads,
+           {$ENDIF}
   Interfaces,
   Forms,
-  Unit1,
+  Unit1, start_trd,
   SysUtils,
   Dialogs,
   Classes { you can add units after this };
@@ -22,7 +23,7 @@ begin
   end;
 
   RequireDerivedFormResource := True;
-  Application.Title:='Сensor v0.6';
+  Application.Title:='Сensor v0.7';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
