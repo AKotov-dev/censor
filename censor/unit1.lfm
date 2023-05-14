@@ -333,15 +333,15 @@ object MainForm: TMainForm
       end
       object ProgressBar1: TProgressBar
         AnchorSideLeft.Control = ApplyBtn
+        AnchorSideTop.Control = StartTime
         AnchorSideRight.Control = ApplyBtn
         AnchorSideRight.Side = asrBottom
-        AnchorSideBottom.Control = StartTime
         AnchorSideBottom.Side = asrBottom
         Left = 340
         Height = 10
-        Top = 160
+        Top = 133
         Width = 142
-        Anchors = [akLeft, akRight, akBottom]
+        Anchors = [akTop, akLeft, akRight]
         TabOrder = 5
         Visible = False
       end
