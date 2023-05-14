@@ -40,7 +40,7 @@ meta=0
 noarch=0
 
 [DEB]
-deb=1
+deb=0
 
 [FILES]
 0=/usr/bin/censor
