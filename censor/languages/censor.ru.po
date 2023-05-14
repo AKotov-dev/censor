@@ -13,12 +13,12 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #: tmainform.addbtn.hint
-msgid "Add Site"
-msgstr "Добавить сайт"
+msgid "Add Site [Insert]"
+msgstr "Добавить сайт [Insert]"
 
 #: tmainform.additem.caption
-msgid "Add"
-msgstr "Добавить"
+msgid "Add [Insert]"
+msgstr "Добавить [Insert]"
 
 #: tmainform.applybtn.caption
 msgctxt "tmainform.applybtn.caption"
@@ -34,14 +34,17 @@ msgctxt "tmainform.dictionarycheck.caption"
 msgid "Activate the dictionary filtering method"
 msgstr "Активировать метод словарной фильтрации"
 
-#: tmainform.editbutton.hint
-msgctxt "tmainform.editbutton.hint"
+#: tmainform.editbtn.hint
+#, fuzzy
+msgctxt "tmainform.editbtn.hint"
 msgid "Edit an entry"
 msgstr "Редактировать"
 
 #: tmainform.edititem.caption
+#, fuzzy
+#| msgid "Edit an entry"
 msgctxt "tmainform.edititem.caption"
-msgid "Edit an entry"
+msgid "Edit an entry [F4]"
 msgstr "Редактировать"
 
 #: tmainform.fridaycheck.caption
@@ -93,12 +96,14 @@ msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
 msgstr "Только Web-серфинг (блокировка VPN, Torrent, Skype и т.д.)"
 
 #: tmainform.removebtn.hint
-msgid "Delete Selected"
+msgctxt "tmainform.removebtn.hint"
+msgid "Delete selected"
 msgstr "Удалить выбранные"
 
 #: tmainform.removeitem.caption
-msgid "Remove"
-msgstr "Удалить"
+msgctxt "tmainform.removeitem.caption"
+msgid "Delete selected"
+msgstr "Удалить выбранные"
 
 #: tmainform.restorebtn.caption
 msgid "Reset"
@@ -127,8 +132,8 @@ msgstr "Сортировать список"
 
 #: tmainform.sortitem.caption
 msgctxt "tmainform.sortitem.caption"
-msgid "Sort List"
-msgstr "Сортировать"
+msgid "Sorting the list"
+msgstr "Сортировать список"
 
 #: tmainform.starttime.text
 msgid "09:00"
@@ -174,6 +179,10 @@ msgstr "Удалить выбранное из списка?"
 msgid "Editing an entry:"
 msgstr "Редактирование записи:"
 
+#: unit1.srecordexists
+msgid "The record already exists!"
+msgstr "Запись уже существует!"
+
 #: unit1.srootrequires
 msgctxt "unit1.srootrequires"
 msgid "Root privileges required!"
@@ -182,3 +191,4 @@ msgstr "Требуются привилегии от root!"
 #: unit1.stimewrong
 msgid "Wrong time range!"
 msgstr "Неправильный диапазон времени!"
+

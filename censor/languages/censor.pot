@@ -2,11 +2,11 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tmainform.addbtn.hint
-msgid "Add Site"
+msgid "Add Site [Insert]"
 msgstr ""
 
 #: tmainform.additem.caption
-msgid "Add"
+msgid "Add [Insert]"
 msgstr ""
 
 #: tmainform.applybtn.caption
@@ -22,14 +22,14 @@ msgstr ""
 msgid "Activate the dictionary filtering method"
 msgstr ""
 
-#: tmainform.editbutton.hint
-msgctxt "tmainform.editbutton.hint"
+#: tmainform.editbtn.hint
+msgctxt "tmainform.editbtn.hint"
 msgid "Edit an entry"
 msgstr ""
 
 #: tmainform.edititem.caption
 msgctxt "tmainform.edititem.caption"
-msgid "Edit an entry"
+msgid "Edit an entry [F4]"
 msgstr ""
 
 #: tmainform.fridaycheck.caption
@@ -80,11 +80,13 @@ msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
 msgstr ""
 
 #: tmainform.removebtn.hint
-msgid "Delete Selected"
+msgctxt "tmainform.removebtn.hint"
+msgid "Delete selected"
 msgstr ""
 
 #: tmainform.removeitem.caption
-msgid "Remove"
+msgctxt "tmainform.removeitem.caption"
+msgid "Delete selected"
 msgstr ""
 
 #: tmainform.restorebtn.caption
@@ -114,7 +116,7 @@ msgstr ""
 
 #: tmainform.sortitem.caption
 msgctxt "tmainform.sortitem.caption"
-msgid "Sort List"
+msgid "Sorting the list"
 msgstr ""
 
 #: tmainform.starttime.text
@@ -159,6 +161,10 @@ msgstr ""
 
 #: unit1.seditrecord
 msgid "Editing an entry:"
+msgstr ""
+
+#: unit1.srecordexists
+msgid "The record already exists!"
 msgstr ""
 
 #: unit1.srootrequires

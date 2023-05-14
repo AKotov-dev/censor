@@ -1,32 +1,34 @@
 object MainForm: TMainForm
   Left = 281
-  Height = 539
-  Top = 128
+  Height = 545
+  Top = 125
   Width = 766
   ActiveControl = ListBox1
   Caption = 'Сensor'
-  ClientHeight = 539
+  ClientHeight = 545
   ClientWidth = 766
   Font.Height = -13
   Font.Name = 'Sans'
+  KeyPreview = True
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   OnShow = FormShow
   SessionProperties = 'DictionaryCheck.Checked;FridayCheck.Checked;Height;LanEdit.Text;Left;MondayCheck.Checked;OnlyWebCheck.Checked;OpenDialog1.InitialDir;Panel1.Width;SaturdayCheck.Checked;StartTime.Text;StopTime.Text;SundayCheck.Checked;ThursdayCheck.Checked;Top;TuesdayCheck.Checked;WanEdit.Text;WednesdayCheck.Checked;Width;SaveDialog1.InitialDir'
   LCLVersion = '2.2.4.0'
   object Panel1: TPanel
     Left = 0
-    Height = 519
+    Height = 525
     Top = 0
     Width = 253
     Align = alLeft
-    ClientHeight = 519
+    ClientHeight = 525
     ClientWidth = 253
     TabOrder = 0
     object ListBox1: TListBox
       AnchorSideTop.Control = Label1
       AnchorSideTop.Side = asrBottom
       Left = 1
-      Height = 490
+      Height = 496
       Hint = 'ok.ru'#10'twitter.com'#10'www.tiktok.com'
       Top = 28
       Width = 251
@@ -60,18 +62,18 @@ object MainForm: TMainForm
   end
   object Splitter1: TSplitter
     Left = 253
-    Height = 519
+    Height = 525
     Top = 0
     Width = 5
   end
   object Panel2: TPanel
     Left = 258
-    Height = 519
+    Height = 525
     Top = 0
     Width = 508
     Align = alClient
     Anchors = [akLeft, akRight, akBottom]
-    ClientHeight = 519
+    ClientHeight = 525
     ClientWidth = 508
     TabOrder = 2
     object GroupBox1: TGroupBox
@@ -154,21 +156,21 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = Panel2
       AnchorSideBottom.Side = asrBottom
       Left = 8
-      Height = 258
+      Height = 264
       Top = 252
       Width = 491
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Top = 20
       BorderSpacing.Bottom = 8
       Caption = 'Blocking Methods and Schedule:'
-      ClientHeight = 240
+      ClientHeight = 246
       ClientWidth = 489
       Enabled = False
       TabOrder = 1
       object OnlyWebCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 67
+        Top = 69
         Width = 372
         Anchors = [akLeft]
         Caption = 'Only Web surfing (blocking VPN, Torrent, Skype, etc)'
@@ -181,7 +183,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 138
+        Top = 142
         Width = 107
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -196,7 +198,7 @@ object MainForm: TMainForm
         Cursor = crHandPoint
         Left = 340
         Height = 53
-        Top = 179
+        Top = 185
         Width = 142
         Anchors = [akRight, akBottom]
         Caption = 'Apply'
@@ -286,7 +288,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrCenter
         Left = 126
         Height = 17
-        Top = 204
+        Top = 210
         Width = 100
         Anchors = [akLeft, akBottom]
         BorderSpacing.Left = 5
@@ -296,7 +298,7 @@ object MainForm: TMainForm
       object StartTime: TTimeEdit
         Left = 9
         Height = 37
-        Top = 129
+        Top = 133
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft]
@@ -310,7 +312,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Side = asrBottom
         Left = 9
         Height = 37
-        Top = 195
+        Top = 201
         Width = 112
         ButtonWidth = 23
         Anchors = [akLeft, akBottom]
@@ -323,7 +325,7 @@ object MainForm: TMainForm
       object DictionaryCheck: TCheckBox
         Left = 9
         Height = 32
-        Top = 15
+        Top = 16
         Width = 290
         Anchors = [akLeft]
         Caption = 'Activate the dictionary filtering method'
@@ -334,7 +336,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Control = ApplyBtn
         Left = 340
         Height = 17
-        Top = 160
+        Top = 166
         Width = 92
         Anchors = [akLeft, akBottom]
         BorderSpacing.Bottom = 2
@@ -737,9 +739,9 @@ object MainForm: TMainForm
       ParentShowHint = False
     end
     object AddBtn: TSpeedButton
-      Left = 222
+      Left = 262
       Height = 40
-      Hint = 'Add Site'
+      Hint = 'Add Site [Insert]'
       Top = 7
       Width = 40
       Glyph.Data = {
@@ -823,9 +825,9 @@ object MainForm: TMainForm
       ParentShowHint = False
     end
     object RemoveBtn: TSpeedButton
-      Left = 262
+      Left = 222
       Height = 40
-      Hint = 'Delete Selected'
+      Hint = 'Delete selected'
       Top = 7
       Width = 40
       Glyph.Data = {
@@ -908,7 +910,7 @@ object MainForm: TMainForm
       ShowHint = True
       ParentShowHint = False
     end
-    object EditButton: TSpeedButton
+    object EditBtn: TSpeedButton
       Left = 182
       Height = 40
       Hint = 'Edit an entry'
@@ -998,7 +1000,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 519
+    Top = 525
     Width = 766
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru'
@@ -1012,37 +1014,37 @@ object MainForm: TMainForm
     Left = 128
     Top = 88
     object AddItem: TMenuItem
-      Caption = 'Add'
+      Caption = 'Add [Insert]'
       OnClick = AddItemClick
     end
     object RemoveItem: TMenuItem
-      Caption = 'Remove'
+      Caption = 'Delete selected'
       OnClick = RemoveItemClick
     end
     object N2: TMenuItem
       Caption = '-'
     end
-    object SortItem: TMenuItem
-      Caption = 'Sort List'
-      OnClick = SortItemClick
+    object EditItem: TMenuItem
+      Caption = 'Edit an entry [F4]'
+      OnClick = EditItemClick
     end
     object Separator2: TMenuItem
       Caption = '-'
     end
-    object EditItem: TMenuItem
-      Caption = 'Edit an entry'
-      OnClick = EditItemClick
+    object SortItem: TMenuItem
+      Caption = 'Sorting the list'
+      OnClick = SortItemClick
     end
     object Separator1: TMenuItem
       Caption = '-'
     end
-    object LoadFromFileItem: TMenuItem
-      Caption = 'Load from file'
-      OnClick = LoadFromFileItemClick
-    end
     object SaveToFileItem: TMenuItem
       Caption = 'Save to file'
       OnClick = SaveToFileItemClick
+    end
+    object LoadFromFileItem: TMenuItem
+      Caption = 'Load from file'
+      OnClick = LoadFromFileItemClick
     end
   end
   object MainFormStorage: TXMLPropStorage

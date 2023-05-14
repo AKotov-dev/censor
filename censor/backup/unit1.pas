@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs,
   ExtCtrls, StdCtrls, Buttons, Menus, XMLPropStorage,
-  ComCtrls, Process, EditBtn, DefaultTranslator, LCLTranslator, Types;
+  ComCtrls, Process, EditBtn, DefaultTranslator, LCLTranslator, LCLType;
 
 type
 
@@ -26,7 +26,7 @@ type
     SelectAll: TSpeedButton;
     AddBtn: TSpeedButton;
     RemoveBtn: TSpeedButton;
-    EditButton: TSpeedButton;
+    EditBtn: TSpeedButton;
     WorkLabel: TLabel;
     ApplyBtn: TBitBtn;
     GroupBox3: TGroupBox;
@@ -60,6 +60,7 @@ type
     Splitter1: TSplitter;
     MainFormStorage: TXMLPropStorage;
     procedure AddItemClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure ListBox1DrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
@@ -94,6 +95,7 @@ resourcestring
   SRootRequires = 'Root privileges required!';
   STimeWrong = 'Wrong time range!';
   SEditRecord = 'Editing an entry:';
+  SRecordExists = 'The record already exists!';
 
 var
   MainForm: TMainForm;
@@ -204,7 +206,7 @@ begin
     S.Add('MAILTO=root');
     S.Add('HOME=/');
     S.Add('');
-    S.Add('# SiteBlocker plan-' + DateToStr(Now));
+    S.Add('# Censor plan-' + DateToStr(Now));
     S.Add(Copy(StartTime.Text, 4, 2) + ' ' + Copy(StartTime.Text, 1, 2) +
       ' * ' + Days + ' * /usr/local/bin/censor.sh');
     S.Add(Copy(StopTime.Text, 4, 2) + ' ' + Copy(StopTime.Text, 1, 2) +
@@ -290,15 +292,19 @@ var
 begin
   if ListBox1.Count <> 0 then
     if MessageDlg(SDeleteConfiguration, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-
+    begin
       //Удаление записей
       for i := -1 + ListBox1.Items.Count downto 0 do
         if ListBox1.Selected[i] then
           ListBox1.Items.Delete(i);
 
-  ListBox1.Items.SaveToFile('/root/.censor/blacklist');
+      //Курсор в начало
+      if ListBox1.Count <> 0 then ListBox1.ItemIndex := 0;
 
-  DaysCheck;
+      ListBox1.Items.SaveToFile('/root/.censor/blacklist');
+
+      DaysCheck;
+    end;
 end;
 
 //Сброс
@@ -351,17 +357,38 @@ begin
       Exit;
   until Trim(Value) <> '';
 
-
   //Очистка от https:// и http://
   Value := StringReplace(Value, '/', '', [rfReplaceAll, rfIgnoreCase]);
   Value := StringReplace(Value, 'http:', '', [rfReplaceAll, rfIgnoreCase]);
   Value := StringReplace(Value, 'https:', '', [rfReplaceAll, rfIgnoreCase]);
 
-  ListBox1.Items.Append(Trim(Value));
+  //Если существует - показать в списке, если нет - добавить
+  if ListBox1.Items.IndexOf(Value) <> -1 then
+  begin
+    ListBox1.ItemIndex := ListBox1.Items.IndexOf(Value);
+    Exit;
+  end
+  else
+  begin
+    ListBox1.Items.Append(Trim(Value));
+    ListBox1.ItemIndex := ListBox1.Count - 1;
+  end;
 
   ListBox1.Items.SaveToFile('/root/.censor/blacklist');
 
   DaysCheck;
+end;
+
+//Нажатие "Insert" = Добавить запись
+procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  case Key of
+    VK_INSERT: AddBtn.Click;
+    VK_F4: EditBtn.Click;
+  end;
+
+  //Отлуп после закрытия InputQery (окно модальное)
+  Key := $0;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -413,6 +440,13 @@ begin
     S := ListBox1.Items.Strings[ListBox1.ItemIndex];
     if not InputQuery('Censor', SEditRecord, S) or (Trim(S) = '') then
       Exit
+    else
+    //Если существует - предупредить
+    if ListBox1.Items.IndexOf(S) <> -1 then
+    begin
+      MessageDlg(SRecordExists, mtWarning, [mbOK], 0);
+      Exit;
+    end
     else
     begin
       ListBox1.Items.Strings[ListBox1.ItemIndex] := S;

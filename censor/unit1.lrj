@@ -24,14 +24,14 @@
 {"hash":209029412,"name":"tmainform.savebtn.hint","sourcebytes":[83,97,118,101,32,76,105,115,116],"value":"Save List"},
 {"hash":157649604,"name":"tmainform.sortbtn.hint","sourcebytes":[83,111,114,116,32,76,105,115,116],"value":"Sort List"},
 {"hash":195296268,"name":"tmainform.selectall.hint","sourcebytes":[83,101,108,101,99,116,32,97,108,108],"value":"Select all"},
-{"hash":174433493,"name":"tmainform.addbtn.hint","sourcebytes":[65,100,100,32,83,105,116,101],"value":"Add Site"},
-{"hash":182556132,"name":"tmainform.removebtn.hint","sourcebytes":[68,101,108,101,116,101,32,83,101,108,101,99,116,101,100],"value":"Delete Selected"},
-{"hash":198983129,"name":"tmainform.editbutton.hint","sourcebytes":[69,100,105,116,32,97,110,32,101,110,116,114,121],"value":"Edit an entry"},
+{"hash":101980733,"name":"tmainform.addbtn.hint","sourcebytes":[65,100,100,32,83,105,116,101,32,91,73,110,115,101,114,116,93],"value":"Add Site [Insert]"},
+{"hash":182556644,"name":"tmainform.removebtn.hint","sourcebytes":[68,101,108,101,116,101,32,115,101,108,101,99,116,101,100],"value":"Delete selected"},
+{"hash":198983129,"name":"tmainform.editbtn.hint","sourcebytes":[69,100,105,116,32,97,110,32,101,110,116,114,121],"value":"Edit an entry"},
 {"hash":245811237,"name":"tmainform.statictext1.caption","sourcebytes":[76,105,99,101,110,115,101,58,32,71,80,76,118,51,32,32,32,65,117,116,104,111,114,58,32,97,108,101,120,95,113,95,50,48,48,48,32,40,67,41,32,50,48,50,51,32,32,32,85,82,76,58,32,104,116,116,112,115,58,47,47,108,105,110,117,120,102,111,114,117,109,46,114,117],"value":"License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"},
-{"hash":18340,"name":"tmainform.additem.caption","sourcebytes":[65,100,100],"value":"Add"},
-{"hash":93079237,"name":"tmainform.removeitem.caption","sourcebytes":[82,101,109,111,118,101],"value":"Remove"},
-{"hash":157649604,"name":"tmainform.sortitem.caption","sourcebytes":[83,111,114,116,32,76,105,115,116],"value":"Sort List"},
-{"hash":198983129,"name":"tmainform.edititem.caption","sourcebytes":[69,100,105,116,32,97,110,32,101,110,116,114,121],"value":"Edit an entry"},
-{"hash":8431845,"name":"tmainform.loadfromfileitem.caption","sourcebytes":[76,111,97,100,32,102,114,111,109,32,102,105,108,101],"value":"Load from file"},
-{"hash":9308581,"name":"tmainform.savetofileitem.caption","sourcebytes":[83,97,118,101,32,116,111,32,102,105,108,101],"value":"Save to file"}
+{"hash":203664493,"name":"tmainform.additem.caption","sourcebytes":[65,100,100,32,91,73,110,115,101,114,116,93],"value":"Add [Insert]"},
+{"hash":182556644,"name":"tmainform.removeitem.caption","sourcebytes":[68,101,108,101,116,101,32,115,101,108,101,99,116,101,100],"value":"Delete selected"},
+{"hash":218643021,"name":"tmainform.edititem.caption","sourcebytes":[69,100,105,116,32,97,110,32,101,110,116,114,121,32,91,70,52,93],"value":"Edit an entry [F4]"},
+{"hash":91758996,"name":"tmainform.sortitem.caption","sourcebytes":[83,111,114,116,105,110,103,32,116,104,101,32,108,105,115,116],"value":"Sorting the list"},
+{"hash":9308581,"name":"tmainform.savetofileitem.caption","sourcebytes":[83,97,118,101,32,116,111,32,102,105,108,101],"value":"Save to file"},
+{"hash":8431845,"name":"tmainform.loadfromfileitem.caption","sourcebytes":[76,111,97,100,32,102,114,111,109,32,102,105,108,101],"value":"Load from file"}
 ]}
