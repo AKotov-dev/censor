@@ -824,10 +824,10 @@ object MainForm: TMainForm
       ShowHint = True
       ParentShowHint = False
     end
-    object RemoveBtn: TSpeedButton
+    object DeleteBtn: TSpeedButton
       Left = 222
       Height = 40
-      Hint = 'Delete selected'
+      Hint = 'Delete selected [F8]'
       Top = 7
       Width = 40
       Glyph.Data = {
@@ -913,7 +913,7 @@ object MainForm: TMainForm
     object EditBtn: TSpeedButton
       Left = 182
       Height = 40
-      Hint = 'Edit an entry'
+      Hint = 'Edit an entry [F4]'
       Top = 7
       Width = 40
       Glyph.Data = {
@@ -1017,16 +1017,16 @@ object MainForm: TMainForm
       Caption = 'Add [Insert]'
       OnClick = AddItemClick
     end
-    object RemoveItem: TMenuItem
-      Caption = 'Delete selected'
-      OnClick = RemoveItemClick
+    object EditItem: TMenuItem
+      Caption = 'Edit an entry [F4]'
+      OnClick = EditItemClick
     end
     object N2: TMenuItem
       Caption = '-'
     end
-    object EditItem: TMenuItem
-      Caption = 'Edit an entry [F4]'
-      OnClick = EditItemClick
+    object RemoveItem: TMenuItem
+      Caption = 'Delete selected [F8]'
+      OnClick = RemoveItemClick
     end
     object Separator2: TMenuItem
       Caption = '-'

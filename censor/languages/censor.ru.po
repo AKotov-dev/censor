@@ -29,6 +29,11 @@ msgstr "Применить"
 msgid "Сensor"
 msgstr ""
 
+#: tmainform.deletebtn.hint
+msgctxt "tmainform.deletebtn.hint"
+msgid "Delete selected [F8]"
+msgstr "Удалить выбранные [F8]"
+
 #: tmainform.dictionarycheck.caption
 msgctxt "tmainform.dictionarycheck.caption"
 msgid "Activate the dictionary filtering method"
@@ -36,13 +41,13 @@ msgstr "Активировать метод словарной фильтрац�
 
 #: tmainform.editbtn.hint
 msgctxt "tmainform.editbtn.hint"
-msgid "Edit an entry"
-msgstr "Редактировать"
+msgid "Edit an entry [F4]"
+msgstr "Редактировать [F4]"
 
 #: tmainform.edititem.caption
 msgctxt "tmainform.edititem.caption"
 msgid "Edit an entry [F4]"
-msgstr "Редактировать"
+msgstr "Редактировать [F4]"
 
 #: tmainform.fridaycheck.caption
 msgid "Friday"
@@ -92,15 +97,10 @@ msgctxt "tmainform.onlywebcheck.caption"
 msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
 msgstr "Только Web-серфинг (блокировка VPN, Torrent, Skype и т.д.)"
 
-#: tmainform.removebtn.hint
-msgctxt "tmainform.removebtn.hint"
-msgid "Delete selected"
-msgstr "Удалить выбранные"
-
 #: tmainform.removeitem.caption
 msgctxt "tmainform.removeitem.caption"
-msgid "Delete selected"
-msgstr "Удалить выбранные"
+msgid "Delete selected [F8]"
+msgstr "Удалить выбранные [F8]"
 
 #: tmainform.restorebtn.caption
 msgid "Reset"

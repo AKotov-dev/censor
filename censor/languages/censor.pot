@@ -18,13 +18,18 @@ msgstr ""
 msgid "Сensor"
 msgstr ""
 
+#: tmainform.deletebtn.hint
+msgctxt "tmainform.deletebtn.hint"
+msgid "Delete selected [F8]"
+msgstr ""
+
 #: tmainform.dictionarycheck.caption
 msgid "Activate the dictionary filtering method"
 msgstr ""
 
 #: tmainform.editbtn.hint
 msgctxt "tmainform.editbtn.hint"
-msgid "Edit an entry"
+msgid "Edit an entry [F4]"
 msgstr ""
 
 #: tmainform.edititem.caption
@@ -79,14 +84,9 @@ msgstr ""
 msgid "Only Web surfing (blocking VPN, Torrent, Skype, etc)"
 msgstr ""
 
-#: tmainform.removebtn.hint
-msgctxt "tmainform.removebtn.hint"
-msgid "Delete selected"
-msgstr ""
-
 #: tmainform.removeitem.caption
 msgctxt "tmainform.removeitem.caption"
-msgid "Delete selected"
+msgid "Delete selected [F8]"
 msgstr ""
 
 #: tmainform.restorebtn.caption

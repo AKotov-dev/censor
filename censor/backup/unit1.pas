@@ -25,7 +25,7 @@ type
     SortBtn: TSpeedButton;
     SelectAll: TSpeedButton;
     AddBtn: TSpeedButton;
-    RemoveBtn: TSpeedButton;
+    DeleteBtn: TSpeedButton;
     EditBtn: TSpeedButton;
     WorkLabel: TLabel;
     ApplyBtn: TBitBtn;
@@ -386,6 +386,7 @@ begin
   case Key of
     VK_INSERT: AddBtn.Click;
     VK_F4: EditBtn.Click;
+    VK_F8: DeleteBtn.Click;
   end;
 
   //Отлуп после закрытия InputQery (окно модальное)
@@ -439,7 +440,7 @@ begin
   if ListBox1.SelCount <> 0 then
   begin
     S := ListBox1.Items.Strings[ListBox1.ItemIndex];
-    if not InputQuery(SEditing, SEditRecord, S) or (Trim(S) = '') then
+    if not InputQuery(SEdit, SEditRecord, S) or (Trim(S) = '') then
       Exit
     else
     //Если существует - предупредить
