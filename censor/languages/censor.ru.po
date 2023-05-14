@@ -35,14 +35,11 @@ msgid "Activate the dictionary filtering method"
 msgstr "Активировать метод словарной фильтрации"
 
 #: tmainform.editbtn.hint
-#, fuzzy
 msgctxt "tmainform.editbtn.hint"
 msgid "Edit an entry"
 msgstr "Редактировать"
 
 #: tmainform.edititem.caption
-#, fuzzy
-#| msgid "Edit an entry"
 msgctxt "tmainform.edititem.caption"
 msgid "Edit an entry [F4]"
 msgstr "Редактировать"
@@ -175,6 +172,10 @@ msgstr "Добавить сайт"
 msgid "Remove selected from list?"
 msgstr "Удалить выбранное из списка?"
 
+#: unit1.sedit
+msgid "Edit"
+msgstr "Редактировать"
+
 #: unit1.seditrecord
 msgid "Editing an entry:"
 msgstr "Редактирование записи:"
@@ -191,4 +192,3 @@ msgstr "Требуются привилегии от root!"
 #: unit1.stimewrong
 msgid "Wrong time range!"
 msgstr "Неправильный диапазон времени!"
-

@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 280
+  Left = 281
   Height = 545
   Top = 125
   Width = 766
@@ -1025,7 +1025,7 @@ object MainForm: TMainForm
       Caption = '-'
     end
     object EditItem: TMenuItem
-      Caption = 'Edit an entry'
+      Caption = 'Edit an entry [F4]'
       OnClick = EditItemClick
     end
     object Separator2: TMenuItem

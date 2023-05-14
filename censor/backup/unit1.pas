@@ -96,6 +96,7 @@ resourcestring
   STimeWrong = 'Wrong time range!';
   SEditRecord = 'Editing an entry:';
   SRecordExists = 'The record already exists!';
+  SEdit = 'Edit';
 
 var
   MainForm: TMainForm;
@@ -438,7 +439,7 @@ begin
   if ListBox1.SelCount <> 0 then
   begin
     S := ListBox1.Items.Strings[ListBox1.ItemIndex];
-    if not InputQuery('Censor', SEditRecord, S) or (Trim(S) = '') then
+    if not InputQuery(SEditing, SEditRecord, S) or (Trim(S) = '') then
       Exit
     else
     //Если существует - предупредить

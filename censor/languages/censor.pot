@@ -159,6 +159,10 @@ msgstr ""
 msgid "Remove selected from list?"
 msgstr ""
 
+#: unit1.sedit
+msgid "Edit"
+msgstr ""
+
 #: unit1.seditrecord
 msgid "Editing an entry:"
 msgstr ""
