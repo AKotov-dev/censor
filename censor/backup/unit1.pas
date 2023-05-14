@@ -90,7 +90,7 @@ type
 resourcestring
   SDeleteConfiguration = 'Remove selected from list?';
   SAppendRecord = 'Append a website';
-  SRootRequires = 'Root privileges required!';
+  SRootRequires = 'Root (su -) privileges required!';
   STimeWrong = 'Wrong time range!';
   SEditRecord = 'Editing an entry:';
   SRecordExists = 'The record already exists!';
@@ -278,6 +278,7 @@ end;
 
 procedure TMainForm.MondayCheckChange(Sender: TObject);
 begin
+  //Состояние панели управления
   DaysCheck;
 end;
 
@@ -299,6 +300,7 @@ begin
 
       ListBox1.Items.SaveToFile('/root/.censor/blacklist');
 
+      //Состояние панели управления
       DaysCheck;
     end;
 end;
@@ -407,6 +409,7 @@ begin
   StopTime.Button.Width := StopTime.Button.Height;
 end;
 
+//Иконки списка
 procedure TMainForm.ListBox1DrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var

@@ -183,8 +183,8 @@ msgstr "Запись уже существует!"
 
 #: unit1.srootrequires
 msgctxt "unit1.srootrequires"
-msgid "Root privileges required!"
-msgstr "Требуются привилегии от root!"
+msgid "Requires a root environment!"
+msgstr "Требуется окружение root!"
 
 #: unit1.stimewrong
 msgid "Wrong time range!"

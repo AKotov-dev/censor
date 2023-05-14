@@ -90,7 +90,7 @@ type
 resourcestring
   SDeleteConfiguration = 'Remove selected from list?';
   SAppendRecord = 'Append a website';
-  SRootRequires = 'Root privileges required!';
+  SRootRequires = 'Requires a root environment!';
   STimeWrong = 'Wrong time range!';
   SEditRecord = 'Editing an entry:';
   SRecordExists = 'The record already exists!';

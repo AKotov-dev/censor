@@ -169,7 +169,7 @@ msgid "The record already exists!"
 msgstr ""
 
 #: unit1.srootrequires
-msgid "Root privileges required!"
+msgid "Requires a root environment!"
 msgstr ""
 
 #: unit1.stimewrong
