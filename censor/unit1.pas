@@ -291,7 +291,7 @@ procedure TMainForm.RemoveItemClick(Sender: TObject);
 var
   i: integer;
 begin
-  if ListBox1.Count <> 0 then
+  if ListBox1.SelCount <> 0 then
     if MessageDlg(SDeleteConfiguration, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
     begin
       //Удаление записей

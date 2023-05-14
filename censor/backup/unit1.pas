@@ -380,13 +380,13 @@ begin
   DaysCheck;
 end;
 
-//Нажатие "Insert" = Добавить запись
+//Опрос кнопок
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   case Key of
-    VK_INSERT: AddBtn.Click;
     VK_F4: EditBtn.Click;
     VK_F8: DeleteBtn.Click;
+    VK_INSERT: AddBtn.Click;
   end;
 
   //Отлуп после закрытия InputQery (окно модальное)

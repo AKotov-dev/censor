@@ -655,7 +655,7 @@ object MainForm: TMainForm
     object SelectAll: TSpeedButton
       Left = 142
       Height = 40
-      Hint = 'Select all'
+      Hint = 'Select all (Ctrl+A)'
       Top = 7
       Width = 40
       Glyph.Data = {

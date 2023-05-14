@@ -106,7 +106,7 @@ msgid "Save to file"
 msgstr ""
 
 #: tmainform.selectall.hint
-msgid "Select all"
+msgid "Select all (Ctrl+A)"
 msgstr ""
 
 #: tmainform.sortbtn.hint

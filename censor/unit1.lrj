@@ -23,7 +23,7 @@
 {"hash":124093428,"name":"tmainform.loadbtn.hint","sourcebytes":[76,111,97,100,32,76,105,115,116],"value":"Load List"},
 {"hash":209029412,"name":"tmainform.savebtn.hint","sourcebytes":[83,97,118,101,32,76,105,115,116],"value":"Save List"},
 {"hash":157649604,"name":"tmainform.sortbtn.hint","sourcebytes":[83,111,114,116,32,76,105,115,116],"value":"Sort List"},
-{"hash":195296268,"name":"tmainform.selectall.hint","sourcebytes":[83,101,108,101,99,116,32,97,108,108],"value":"Select all"},
+{"hash":91797449,"name":"tmainform.selectall.hint","sourcebytes":[83,101,108,101,99,116,32,97,108,108,32,40,67,116,114,108,43,65,41],"value":"Select all (Ctrl+A)"},
 {"hash":101980733,"name":"tmainform.addbtn.hint","sourcebytes":[65,100,100,32,83,105,116,101,32,91,73,110,115,101,114,116,93],"value":"Add Site [Insert]"},
 {"hash":248242349,"name":"tmainform.deletebtn.hint","sourcebytes":[68,101,108,101,116,101,32,115,101,108,101,99,116,101,100,32,91,70,56,93],"value":"Delete selected [F8]"},
 {"hash":218643021,"name":"tmainform.editbtn.hint","sourcebytes":[69,100,105,116,32,97,110,32,101,110,116,114,121,32,91,70,52,93],"value":"Edit an entry [F4]"},
