@@ -320,7 +320,7 @@ begin
 
   //Убиваем зависший (?) host (цикл ipset в скрипте)
   StartProcess(
-    '[[ $(pidof host) ]] && killall host; [[ $(systemctl list-units | grep "crond.service") ]] && '
+    'killall censor.sh; [[ $(systemctl list-units | grep "crond.service") ]] && '
     + 'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables

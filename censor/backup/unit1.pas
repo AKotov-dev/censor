@@ -310,7 +310,7 @@ procedure TMainForm.ResetBtnClick(Sender: TObject);
 begin
   //Прорисовываем Disable
   ResetBtn.Enabled := False;
-//  Application.ProcessMessages;
+  Application.ProcessMessages;
 
   //Удаляем настройки планировщика (RedHat или Debian)
   if DirectoryExists('/var/spool/cron/crontabs') then
@@ -320,8 +320,8 @@ begin
 
   //Убиваем зависший (?) host (цикл ipset в скрипте)
   StartProcess(
-    '[[ $(pidof host) ]] && killall host; [[ $(systemctl list-units | grep "crond.service") ]] && ' +
-    'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
+    'killall host censor.sh; [[ $(systemctl list-units | grep "crond.service") ]] && '
+    + 'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +
