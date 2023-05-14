@@ -90,7 +90,7 @@ type
 resourcestring
   SDeleteConfiguration = 'Remove selected from list?';
   SAppendRecord = 'Append a website';
-  SRootRequires = 'Root (su -) privileges required!';
+  SRootRequires = 'Requires a root environment!';
   STimeWrong = 'Wrong time range!';
   SEditRecord = 'Editing an entry:';
   SRecordExists = 'The record already exists!';
@@ -308,8 +308,9 @@ end;
 //Сброс
 procedure TMainForm.ResetBtnClick(Sender: TObject);
 begin
+  //Прорисовываем Disable
   ResetBtn.Enabled := False;
-  Application.ProcessMessages;
+//  Application.ProcessMessages;
 
   //Удаляем настройки планировщика (RedHat или Debian)
   if DirectoryExists('/var/spool/cron/crontabs') then
@@ -317,9 +318,10 @@ begin
   else
     DeleteFile('/var/spool/cron/root');
 
+  //Убиваем зависший (?) host (цикл ipset в скрипте)
   StartProcess(
-    '[[ $(systemctl list-units | grep "crond.service") ]] && systemctl restart crond.service || systemctl restart cron.service',
-    'nowait');
+    '[[ $(pidof host) ]] && killall host; [[ $(systemctl list-units | grep "crond.service") ]] && ' +
+    'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +

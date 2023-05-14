@@ -308,6 +308,7 @@ end;
 //Сброс
 procedure TMainForm.ResetBtnClick(Sender: TObject);
 begin
+  //Прорисовываем Disable
   ResetBtn.Enabled := False;
   Application.ProcessMessages;
 
@@ -317,9 +318,10 @@ begin
   else
     DeleteFile('/var/spool/cron/root');
 
+  //Убиваем зависший (?) host (цикл ipset в скрипте)
   StartProcess(
-    '[[ $(systemctl list-units | grep "crond.service") ]] && systemctl restart crond.service || systemctl restart cron.service',
-    'nowait');
+    '[[ $(pidof host) ]] && killall host; [[ $(systemctl list-units | grep "crond.service") ]] && '
+    + 'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +
