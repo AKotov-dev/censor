@@ -336,10 +336,10 @@ object MainForm: TMainForm
         AnchorSideRight.Control = ApplyBtn
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = Label2
-        AnchorSideBottom.Side = asrBottom
+        AnchorSideBottom.Side = asrCenter
         Left = 340
         Height = 10
-        Top = 149
+        Top = 145
         Width = 142
         Anchors = [akLeft, akRight, akBottom]
         TabOrder = 5
