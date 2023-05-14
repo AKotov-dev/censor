@@ -65,9 +65,12 @@ procedure StartScript.StartProgress;
 begin
   with MainForm do
   begin
+    Application.ProcessMessages;
+    ProgressBar1.Visible := True;
     ProgressBar1.Style := pbstMarquee;
     ProgressBar1.Refresh;
     ApplyBtn.Enabled := False;
+    ApplyBtn.Repaint;
   end;
 end;
 
@@ -76,9 +79,12 @@ procedure StartScript.StopProgress;
 begin
   with MainForm do
   begin
+    Application.ProcessMessages;
+    ProgressBar1.Visible := False;
     ProgressBar1.Style := pbstNormal;
     ProgressBar1.Refresh;
     ApplyBtn.Enabled := True;
+    ApplyBtn.Repaint;
   end;
 end;
 
