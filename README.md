@@ -13,8 +13,8 @@ It has three blocking options that differ in their effectiveness:
 How to work
 --
 + Add to the list addresses of sites without `http(s)` that you want to block
-+ If necessary, specify the desired blocking method (the strongest - everything is included)
 + Specify the days of the week and the time interval during which the blocking will be active
++ If necessary, specify the desired blocking method (the strongest - everything is included)
 + Click the `Apply` button
 
 Open a browser and check your work. If you changed the blocking rules again, **the browser needs to be reopened** and check the work again. The `Reset` button removes all locks and returns full access to the Internet.
