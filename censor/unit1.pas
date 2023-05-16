@@ -149,11 +149,12 @@ begin
     S := TStringList.Create;
 
     //Если нет, создаём и активируем сервис /etc/systemd/system/censor.service
+    //Перекрыть возможные правила от shorewall.service ufw.service firewalld.service
     if not FileExists('/etc/systemd/system/censor.service') then
     begin
       S.Add('[Unit]');
       S.Add('Description=Censor Unit');
-      S.Add('After=network-online.target');
+      S.Add('After=network-online.target shorewall.service ufw.service firewalld.service');
       S.Add('Wants=network-online.target');
       S.Add('');
       S.Add('[Service]');

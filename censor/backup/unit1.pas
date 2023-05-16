@@ -153,7 +153,7 @@ begin
     begin
       S.Add('[Unit]');
       S.Add('Description=Censor Unit');
-      S.Add('After=network-online.target');
+      S.Add('After=network-online.target shorewall.service ufw.service firewalld.service');
       S.Add('Wants=network-online.target');
       S.Add('');
       S.Add('[Service]');
@@ -310,6 +310,7 @@ procedure TMainForm.ResetBtnClick(Sender: TObject);
 begin
   //Прорисовываем Disable
   ResetBtn.Enabled := False;
+  ApplyBtn.Enabled := False;
   Application.ProcessMessages;
 
   //Удаляем настройки планировщика (RedHat или Debian)
@@ -320,8 +321,8 @@ begin
 
   //Убиваем зависший (?) host (цикл ipset в скрипте)
   StartProcess(
-    'killall censor.sh; [[ $(systemctl list-units | grep "crond.service") ]] && '
-    + 'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
+    'killall censor.sh; [[ $(systemctl list-units | grep "crond.service") ]] && ' +
+    'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
   //Удаляем сервис автозапуска и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +
@@ -340,6 +341,7 @@ begin
 
   //Проверка состояния кнопки Reset
   ResetCheck;
+  ApplyBtn.Enabled := True;
 end;
 
 //Сохранить список
