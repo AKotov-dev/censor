@@ -610,7 +610,7 @@ begin
     S.Add('     ipset -A blacklist6 $ip; done');
     S.Add('done;');
     S.Add('ipset save > /root/.censor/ipset_rules');
-    S.Add('    else');
+    S.Add('   else');
     S.Add('ipset load < /root/.censor/ipset_rules');
     S.Add('fi');
     S.Add('');

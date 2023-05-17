@@ -135,8 +135,6 @@ begin
   if FileExists('/etc/systemd/system/censor.service') or
     FileExists('/var/spool/cron/root') or
     FileExists('/var/spool/cron/crontabs/root') then
-
-//  if FileExists('/root/.censor/ipset_rules') then
     ResetBtn.Enabled := True
   else
     ResetBtn.Enabled := False;
