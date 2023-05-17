@@ -580,22 +580,6 @@ begin
     S.Add('ip6tables -A OUTPUT -p udp --dport domain -j ACCEPT');
     S.Add(''); }
 
-    S.Add('# С XX:XX часов утра до NN:NN часов вечера пускать с ограничениями');
-    S.Add('if [[ "$(date +%T)" > "$hstart" && "$(date +%T)" < "$hend" && "$block_day" = "yes" ]]; then');
-    S.Add('');
-
-    //Только Web-серфинг (блокировка VPN, Torrent, Jabber etc...)
-    if OnlyWebCheck.Checked then
-    begin
-      S.Add('# Только Web-серфинг (блокировка VPN, Torrent Skype и т.д., http/https/dns разрешен)');
-      S.Add('iptables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
-      S.Add('ip6tables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
-      S.Add('# Оставляем чистый DNS (udp)');
-      S.Add('iptables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
-      S.Add('ip6tables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
-      S.Add('');
-    end;
-
     //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
     //Очищаем ipset целиком, если есть таблицы (Apply/Reboot)
@@ -620,13 +604,29 @@ begin
     S.Add('fi');
     S.Add('');
 
+    S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
+    S.Add('ipset -L');
+    S.Add('');
+
+    S.Add('# С XX:XX часов утра до NN:NN часов вечера пускать с ограничениями');
+    S.Add('if [[ "$(date +%T)" > "$hstart" && "$(date +%T)" < "$hend" && "$block_day" = "yes" ]]; then');
+    S.Add('');
+
     S.Add('iptables -A OUTPUT -m set --match-set blacklist dst -j REJECT');
     S.Add('ip6tables -A OUTPUT -m set --match-set blacklist6 dst -j REJECT');
     S.Add('');
 
-    S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
-    S.Add('ipset -L');
-    S.Add('');
+    //Только Web-серфинг (блокировка VPN, Torrent, Jabber etc...)
+    if OnlyWebCheck.Checked then
+    begin
+      S.Add('# Только Web-серфинг (блокировка VPN, Torrent Skype и т.д., http/https/dns разрешен)');
+      S.Add('iptables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
+      S.Add('ip6tables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
+      S.Add('# Оставляем чистый DNS (udp)');
+      S.Add('iptables -A OUTPUT -p udp ! --sport domain --dport 1024:65535 -j REJECT');
+      S.Add('ip6tables -A OUTPUT -p udp ! --sport domain --dport 1024:65535 -j REJECT');
+      S.Add('');
+    end;
 
     if DictionaryCheck.Checked then
     begin

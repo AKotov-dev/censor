@@ -580,8 +580,40 @@ begin
     S.Add('ip6tables -A OUTPUT -p udp --dport domain -j ACCEPT');
     S.Add(''); }
 
+    //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
+    S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
+    //Очищаем ipset целиком, если есть таблицы (Apply/Reboot)
+    S.Add('[[ $(ipset -L) ]] && ipset destroy');
+    //Если ipset ранее не сохранялся - начитываем из интернет
+    S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
+    S.Add('ipset -N blacklist iphash family inet');
+    S.Add('ipset -N blacklist6 iphash family inet6');
+
+    S.Add('for site in $(cat /root/.censor/blacklist); do');
+    S.Add('data=$(host $site)');
+    S.Add('   for ip in $(echo "$data" | grep "has address" | cut -d " " -f4); do');
+    S.Add('     ipset -A blacklist $ip; done');
+    S.Add('   for ip in $(echo "$data" | grep "has IPv6 address" | cut -d " " -f5); do');
+    S.Add('     ipset -A blacklist6 $ip; done');
+    S.Add('done;');
+    //Пишем ipset-таблицы в файл (для reboot)
+    S.Add('ipset save > /root/.censor/ipset_rules');
+    S.Add('   else');
+    //Иначе восстанавливаем из файла
+    S.Add('ipset restore -f /root/.censor/ipset_rules');
+    S.Add('fi');
+    S.Add('');
+
+    S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
+    S.Add('ipset -L');
+    S.Add('');
+
     S.Add('# С XX:XX часов утра до NN:NN часов вечера пускать с ограничениями');
     S.Add('if [[ "$(date +%T)" > "$hstart" && "$(date +%T)" < "$hend" && "$block_day" = "yes" ]]; then');
+    S.Add('');
+
+    S.Add('iptables -A OUTPUT -m set --match-set blacklist dst -j REJECT');
+    S.Add('ip6tables -A OUTPUT -m set --match-set blacklist6 dst -j REJECT');
     S.Add('');
 
     //Только Web-серфинг (блокировка VPN, Torrent, Jabber etc...)
@@ -595,35 +627,6 @@ begin
       S.Add('ip6tables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
       S.Add('');
     end;
-
-    //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
-    S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
-    S.Add('[[ $(ipset -L) ]] && ipset destroy');
-
-    S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
-    S.Add('ipset -N blacklist iphash family inet');
-    S.Add('ipset -N blacklist6 iphash family inet6');
-
-    S.Add('for site in $(cat /root/.censor/blacklist); do');
-    S.Add('data=$(host $site)');
-    S.Add('   for ip in $(echo "$data" | grep "has address" | cut -d " " -f4); do');
-    S.Add('     ipset -A blacklist $ip; done');
-    S.Add('   for ip in $(echo "$data" | grep "has IPv6 address" | cut -d " " -f5); do');
-    S.Add('     ipset -A blacklist6 $ip; done');
-    S.Add('done;');
-    S.Add('ipset save > /root/.censor/ipset_rules');
-    S.Add('   else');
-    S.Add('ipset restore -f /root/.censor/ipset_rules');
-    S.Add('fi');
-    S.Add('');
-
-    S.Add('iptables -A OUTPUT -m set --match-set blacklist dst -j REJECT');
-    S.Add('ip6tables -A OUTPUT -m set --match-set blacklist6 dst -j REJECT');
-    S.Add('');
-
-    S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
-    S.Add('ipset -L');
-    S.Add('');
 
     if DictionaryCheck.Checked then
     begin
