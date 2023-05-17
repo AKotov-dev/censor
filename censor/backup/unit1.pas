@@ -621,7 +621,6 @@ begin
 
     S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
     S.Add('ipset -L');
-    //S.Add('ipset -L blacklist6');
     S.Add('');
 
     if DictionaryCheck.Checked then

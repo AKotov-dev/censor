@@ -591,8 +591,8 @@ begin
       S.Add('iptables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('ip6tables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('# Оставляем чистый DNS (udp)');
-      S.Add('iptables -A OUTPUT -p udp ! --sport dns --dport 1024:65535 -j REJECT');
-      S.Add('ip6tables -A OUTPUT -p udp ! --sport dns --dport 1024:65535 -j REJECT');
+      S.Add('iptables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
+      S.Add('ip6tables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
       S.Add('');
     end;
 
