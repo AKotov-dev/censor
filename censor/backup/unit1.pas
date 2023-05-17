@@ -135,6 +135,8 @@ begin
   if FileExists('/etc/systemd/system/censor.service') or
     FileExists('/var/spool/cron/root') or
     FileExists('/var/spool/cron/crontabs/root') then
+
+//  if FileExists('/root/.censor/ipset_rules') then
     ResetBtn.Enabled := True
   else
     ResetBtn.Enabled := False;
@@ -149,7 +151,7 @@ begin
     S := TStringList.Create;
 
     //Если нет, создаём и активируем сервис /etc/systemd/system/censor.service
-    //Перекрыть возможные правила от shorewall.service ufw.service firewalld.service
+    //Перекрыть возможные правила от shorewall shorewall6 ufw firewalld
     if not FileExists('/etc/systemd/system/censor.service') then
     begin
       S.Add('[Unit]');
@@ -325,10 +327,10 @@ begin
     'killall censor.sh; [[ $(systemctl list-units | grep "crond.service") ]] && ' +
     'systemctl restart crond.service || systemctl restart cron.service', 'nowait');
 
-  //Удаляем сервис автозапуска и скрипт правил iptables
+  //Удаляем сервис автозапуска, ipset_rules и скрипт правил iptables
   StartProcess('systemctl disable censor.service; ' +
-    'rm -f /etc/systemd/system/censor.service /usr/local/bin/censor.sh; systemctl daemon-reload',
-    'wait');
+    'rm -f /etc/systemd/system/censor.service /usr/local/bin/censor.sh /root/.censor/ipset_rules; '
+    + 'systemctl daemon-reload', 'wait');
 
   //Возвращаем iptables/ip6tables в Default, удаляем blacklist(6)
   StartProcess(
@@ -591,13 +593,14 @@ begin
       S.Add('iptables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('ip6tables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('# Оставляем чистый DNS (udp)');
-      S.Add('iptables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
-      S.Add('ip6tables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
+      S.Add('iptables -A OUTPUT -p udp ! --sport dns --dport 1024:65535 -j REJECT');
+      S.Add('ip6tables -A OUTPUT -p udp ! --sport dns --dport 1024:65535 -j REJECT');
       S.Add('');
     end;
 
     //Формируем списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
+    S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
     S.Add('ipset -X blacklist; ipset -N blacklist iphash family inet; ipset -F blacklist');
     S.Add('ipset -X blacklist6; ipset -N blacklist6 iphash family inet6; ipset -F blacklist6');
 
@@ -608,6 +611,10 @@ begin
     S.Add('   for ip in $(echo "$data" | grep "has IPv6 address" | cut -d " " -f5); do');
     S.Add('     ipset -A blacklist6 $ip; done');
     S.Add('done;');
+    S.Add('ipset save > /root/.censor/ipset_rules');
+    S.Add('    else');
+    S.Add('ipset load < /root/.censor/ipset_rules');
+    S.Add('fi');
     S.Add('');
 
     S.Add('iptables -A OUTPUT -m set --match-set blacklist dst -j REJECT');
@@ -634,6 +641,9 @@ begin
     S.Add('');
 
     S.Add('exit 0');
+
+    //Удаляем файл таблиц ipset для обновления
+    DeleteFile('/root/.censor/ipset_rules');
 
     //Сохраняем файл censor.sh
     S.SaveToFile('/usr/local/bin/censor.sh');
