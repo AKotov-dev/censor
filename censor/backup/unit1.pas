@@ -610,8 +610,8 @@ begin
     S.Add('     ipset -A blacklist6 $ip; done');
     S.Add('done;');
     S.Add('ipset save > /root/.censor/ipset_rules');
-    S.Add('    else');
-    S.Add('ipset load < /root/.censor/ipset_rules');
+    S.Add('   else');
+    S.Add('ipset restore -f /root/.censor/ipset_rules');
     S.Add('fi');
     S.Add('');
 
@@ -620,8 +620,8 @@ begin
     S.Add('');
 
     S.Add('# Визуальный контроль черных списков (iptables/ip6tables)');
-    S.Add('ipset -L blacklist');
-    S.Add('ipset -L blacklist6');
+    S.Add('ipset -L');
+    //S.Add('ipset -L blacklist6');
     S.Add('');
 
     if DictionaryCheck.Checked then
