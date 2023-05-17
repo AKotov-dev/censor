@@ -330,14 +330,14 @@ begin
     'rm -f /etc/systemd/system/censor.service /usr/local/bin/censor.sh /root/.censor/ipset_rules; '
     + 'systemctl daemon-reload', 'wait');
 
-  //Возвращаем iptables/ip6tables в Default, удаляем blacklist(6)
+  //Возвращаем iptables/ip6tables в Default, очищаем ipset
   StartProcess(
     'iptables -F; iptables -X; iptables -t nat -F; iptables -t nat -X; ' +
-    'iptables -t mangle -F; iptables -t mangle -X; ipset -X blacklist; ' +
+    'iptables -t mangle -F; iptables -t mangle -X; ' +
     'ip6tables -F; ip6tables -X; ip6tables -t nat -F; ip6tables -t nat -X; ' +
-    'ip6tables -t mangle -F; ip6tables -t mangle -X; ipset -X blacklist6; ' +
+    'ip6tables -t mangle -F; ip6tables -t mangle -X; ' +
     'iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT; ' +
-    'ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT',
+    'ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT; ipset destroy',
     'nowait');
 
   //Проверка состояния кнопки Reset
@@ -598,11 +598,12 @@ begin
 
     //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
-    S.Add('if [[ $(ipset -L) ]]; then ipset -X blacklist; ipset -X blacklist6; fi');
-
+    //Очищаем ipset целиком, если есть таблицы (Apply/Reboot)
+    S.Add('[[ $(ipset -L) ]] && ipset destroy');
+    //Если ipset ранее не сохранялся - начитываем из интернет
     S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
-    S.Add('ipset -N blacklist iphash family inet; ipset -F blacklist');
-    S.Add('ipset -N blacklist6 iphash family inet6; ipset -F blacklist6');
+    S.Add('ipset -N blacklist iphash family inet');
+    S.Add('ipset -N blacklist6 iphash family inet6');
 
     S.Add('for site in $(cat /root/.censor/blacklist); do');
     S.Add('data=$(host $site)');
@@ -611,8 +612,10 @@ begin
     S.Add('   for ip in $(echo "$data" | grep "has IPv6 address" | cut -d " " -f5); do');
     S.Add('     ipset -A blacklist6 $ip; done');
     S.Add('done;');
+    //Пишем ipset-таблицы в файл (для reboot)
     S.Add('ipset save > /root/.censor/ipset_rules');
     S.Add('   else');
+    //Иначе восстанавливаем из файла
     S.Add('ipset restore -f /root/.censor/ipset_rules');
     S.Add('fi');
     S.Add('');

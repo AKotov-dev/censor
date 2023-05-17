@@ -74,11 +74,14 @@ deb=1
 20=iptables -t mangle -F; iptables -t mangle -X
 21=ip6tables -F; ip6tables -X; ip6tables -t nat -F; ip6tables -t nat -X
 22=ip6tables -t mangle -F; ip6tables -t mangle -X
-23=ipset -X blacklist; ipset -X blacklist6
-24=
-25=iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT
-26=ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT
-27=fi;
+23=
+24=iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT
+25=ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT
+26=
+27=#Очищаем и удаляем таблицы ipset
+28=ipset destroy
+29=if [ -f /root/.censor/ipset_rules ]; then rm -fv /root/.censor/ipset_rules; fi
+30=fi;
 
 [URL32]
 url32=https://github.com/AKotov-dev/censor
