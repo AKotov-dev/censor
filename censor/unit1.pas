@@ -598,7 +598,7 @@ begin
 
     //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
-    S.Add('ipset -X blacklist; ipset -X blacklist6');
+    S.Add('if [[ $(ipset -L) ]]; then ipset -X blacklist; ipset -X blacklist6; fi');
 
     S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
     S.Add('ipset -N blacklist iphash family inet; ipset -F blacklist');
