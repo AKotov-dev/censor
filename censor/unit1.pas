@@ -596,11 +596,13 @@ begin
       S.Add('');
     end;
 
-    //Формируем списки IPv4/IPv6 blacklist и blacklist6
+    //Удаляем/Создаём списки IPv4/IPv6 blacklist и blacklist6
     S.Add('# Блокировка IPSET по множеству IP-адресов (iptables/ip6tables)');
+    S.Add('ipset -X blacklist; ipset -X blacklist6');
+
     S.Add('if [ ! -f /root/.censor/ipset_rules ]; then');
-    S.Add('ipset -X blacklist; ipset -N blacklist iphash family inet; ipset -F blacklist');
-    S.Add('ipset -X blacklist6; ipset -N blacklist6 iphash family inet6; ipset -F blacklist6');
+    S.Add('ipset -N blacklist iphash family inet; ipset -F blacklist');
+    S.Add('ipset -N blacklist6 iphash family inet6; ipset -F blacklist6');
 
     S.Add('for site in $(cat /root/.censor/blacklist); do');
     S.Add('data=$(host $site)');
