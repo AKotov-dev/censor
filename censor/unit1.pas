@@ -628,15 +628,16 @@ begin
       S.Add('');
     end;
 
+    //Словарная фильтрация
     if DictionaryCheck.Checked then
     begin
       S.Add('# Блокировка STRING - словарная фильтрация (iptables/ip6tables)');
       for i := 0 to ListBox1.Count - 1 do
       begin
         S.Add('iptables -A OUTPUT -m string --string "' +
-          ListBox1.Items[i] + '" --algo bm -j REJECT');
+          ListBox1.Items[i] + '" --algo kmp -j REJECT');
         S.Add('ip6tables -A OUTPUT -m string --string "' +
-          ListBox1.Items[i] + '" --algo bm -j REJECT');
+          ListBox1.Items[i] + '" --algo kmp -j REJECT');
       end;
     end;
     S.Add('fi;');
@@ -665,7 +666,7 @@ begin
 
   //Это отправляем в поток...
   //Делаем исполняемым и запускаем /usr/local/bin/censor.sh
-  // StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
+  //StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 end;
 
 end.

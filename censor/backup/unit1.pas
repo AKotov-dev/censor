@@ -623,20 +623,21 @@ begin
       S.Add('iptables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('ip6tables -A OUTPUT -p tcp -m multiport ! --dports http,https -j REJECT');
       S.Add('# Оставляем чистый DNS (udp)');
-      S.Add('iptables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
-      S.Add('ip6tables -A OUTPUT -p udp ! --sport 53 --dport 1024:65535 -j REJECT');
+      S.Add('iptables -A OUTPUT -p udp ! --sport domain --dport 1024:65535 -j REJECT');
+      S.Add('ip6tables -A OUTPUT -p udp ! --sport domain --dport 1024:65535 -j REJECT');
       S.Add('');
     end;
 
+    //Словарная фильтрация
     if DictionaryCheck.Checked then
     begin
       S.Add('# Блокировка STRING - словарная фильтрация (iptables/ip6tables)');
       for i := 0 to ListBox1.Count - 1 do
       begin
         S.Add('iptables -A OUTPUT -m string --string "' +
-          ListBox1.Items[i] + '" --algo bm -j REJECT');
+          ListBox1.Items[i] + '" --algo kmp -j REJECT');
         S.Add('ip6tables -A OUTPUT -m string --string "' +
-          ListBox1.Items[i] + '" --algo bm -j REJECT');
+          ListBox1.Items[i] + '" --algo kmp -j REJECT');
       end;
     end;
     S.Add('fi;');
