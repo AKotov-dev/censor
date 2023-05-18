@@ -11,9 +11,11 @@ release=0.mrx9
 group=Applications/System
 
 [DESCRIPTION]
-0=Censor - Site blocker with scheduler
-1=...
-2=More information: /usr/share/doc/package_name/repack.txt
+0=1. Add sites to block
+1=2. Specify the days of the week to block
+2=3. Specify the time to block sites and click "Apply"
+3=...
+4=More information: /usr/share/doc/package_name/repack.txt
 
 [MAINTAINER]
 maintainer=Alex Kotov
@@ -31,7 +33,7 @@ urlcopy=https://github.com/AKotov-dev/censor
 license=GPLv3
 
 [DEPS]
-deps=iptables, ipset, systemd, cronie, bind-utils, polkit, gtk2
+deps=iptables ipset systemd cronie bind-utils polkit gtk2
 
 [META]
 meta=0
