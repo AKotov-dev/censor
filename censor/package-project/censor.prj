@@ -82,10 +82,9 @@ deb=1
 26=iptables -P INPUT ACCEPT; iptables -P OUTPUT ACCEPT; iptables -P FORWARD ACCEPT
 27=ip6tables -P INPUT ACCEPT; ip6tables -P OUTPUT ACCEPT; ip6tables -P FORWARD ACCEPT
 28=
-29=#Очищаем и удаляем таблицы ipset
-30=if [[ $(ipset -L) ]]; then ipset destroy; fi
-31=if [ -f /root/.censor/ipset_rules ]; then rm -fv /root/.censor/ipset_rules; fi
-32=fi;
+29=#Удаляем таблицы ipset
+30=if [ -f /root/.censor/ipset_rules ]; then rm -fv /root/.censor/ipset_rules; fi
+31=fi;
 
 [URL32]
 url32=https://github.com/AKotov-dev/censor
