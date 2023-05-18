@@ -132,9 +132,9 @@ end;
 procedure TMainForm.ResetCheck;
 begin
   //Проверка созданных файлов
-  if FileExists('/etc/systemd/system/censor.service') or
-    FileExists('/var/spool/cron/root') or
-    FileExists('/var/spool/cron/crontabs/root') then
+  if FileExists('/etc/systemd/system/censor.service') then
+ //   FileExists('/var/spool/cron/root') or
+ //   FileExists('/var/spool/cron/crontabs/root') then
     ResetBtn.Enabled := True
   else
     ResetBtn.Enabled := False;
@@ -666,7 +666,7 @@ begin
 
   //Это отправляем в поток...
   //Делаем исполняемым и запускаем /usr/local/bin/censor.sh
-  // StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
+  //StartProcess('chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 end;
 
 end.

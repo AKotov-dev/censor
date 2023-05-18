@@ -46,7 +46,7 @@ begin
     ExProcess.Parameters.Add('-c');
 
     ExProcess.Parameters.Add(
-      'chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
+      'killall censor.sh; chmod +x /usr/local/bin/censor.sh; /usr/local/bin/censor.sh');
 
     ExProcess.Execute;
 
@@ -57,8 +57,6 @@ begin
     Terminate;
   end;
 end;
-
-{ БЛОК ОТОБРАЖЕНИЯ ЛОГА }
 
 //Старт
 procedure StartScript.StartProgress;
